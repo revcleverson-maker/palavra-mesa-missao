@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#123f31">
+<meta name="description" content="Caderno Mestre Volume 2 — A Palavra Entre Nós. Leitura responsiva para celular, tablet e computador.">
+<title>Volume 2 | A Palavra Entre Nós</title>
+<style>
+:root{
+ --green:#123f31;--green2:#245c45;--gold:#b88b2f;--cream:#f4edd9;--paper:#fffdf7;--surface:#fff;
+ --ink:#26312b;--muted:#68736c;--line:#dacda9;--shadow:0 16px 44px rgba(25,53,41,.16);
+ --fs:18px;--lh:1.72;--width:770px;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+ --serif:Georgia,"Times New Roman",serif
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:75px}
+body{margin:0;background:var(--paper);color:var(--ink);font:var(--fs)/var(--lh) var(--serif)}
+body.sepia{--paper:#efe2c5;--surface:#f6ecd3;--ink:#3d3426;--muted:#665e50;--line:#bfae82}
+body.dark{--paper:#111c16;--surface:#19271f;--ink:#edf3ee;--muted:#bbc7bf;--line:#56614e;--green:#d7bd78;--green2:#93bca4;--gold:#e2bd64}
+body.contrast{--paper:#fff;--surface:#fff;--ink:#000;--muted:#222;--green:#003b2c;--gold:#6f4800}
+a{color:var(--green2)}button,input{font:inherit}
+#progress{position:fixed;inset:0 auto auto 0;height:4px;width:0;background:linear-gradient(90deg,var(--gold),var(--green2));z-index:120}
+.topbar{position:sticky;top:0;z-index:100;height:68px;display:flex;align-items:center;gap:.55rem;padding:.5rem .7rem;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.topbar button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:.5rem .75rem;min-height:42px;font-family:var(--sans);font-weight:700}
+.brand{flex:1;min-width:0;font-family:var(--sans)}.brand strong{display:block;color:var(--green);font-size:.88rem}.brand span{display:block;color:var(--muted);font-size:.72rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero{min-height:calc(100svh - 68px);display:grid;place-items:center;padding:clamp(1rem,5vw,4rem);background:radial-gradient(circle at 70% 25%,rgba(184,139,47,.17),transparent 38%),linear-gradient(145deg,rgba(18,63,49,.13),transparent 55%)}
+.cover{width:min(1120px,100%);display:grid;grid-template-columns:minmax(300px,420px) 1fr;gap:clamp(1.4rem,5vw,4rem);align-items:center}
+.cover-art{position:relative;aspect-ratio:3/4;background:linear-gradient(160deg,#0f382c,#1f5b43 62%,#10372b);border:10px solid #0e3227;outline:2px solid var(--gold);box-shadow:var(--shadow);overflow:hidden;color:#fff;padding:2rem;display:flex;flex-direction:column;justify-content:space-between}
+.cover-art:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 15%,rgba(255,255,255,.13),transparent 25%),linear-gradient(135deg,transparent 48%,rgba(255,255,255,.05) 49%,transparent 51%);pointer-events:none}
+.cover-art .label{font:800 .78rem/1.3 var(--sans);letter-spacing:.15em;color:#f0d58e;text-transform:uppercase}
+.cover-art h1{font:700 clamp(2.1rem,5vw,3.5rem)/1.05 var(--serif);margin:.5rem 0;color:#fff;text-transform:uppercase;position:relative}
+.cover-art h1 em{display:block;color:#f2d27e;font-style:italic;text-transform:none;font-size:.78em}
+.cover-art .verse{font-style:italic;font-size:1.05rem;border-top:1px solid rgba(255,255,255,.4);border-bottom:1px solid rgba(255,255,255,.4);padding:1rem 0}
+.land{position:absolute;left:-8%;right:-8%;bottom:18%;height:28%;background:linear-gradient(165deg,transparent 25%,rgba(246,225,160,.85) 26%,rgba(246,225,160,.85) 30%,transparent 31%),linear-gradient(172deg,transparent 38%,rgba(205,157,62,.9) 39%,rgba(205,157,62,.9) 43%,transparent 44%);opacity:.75}
+.seed{position:absolute;width:18px;height:30px;border-radius:60% 40% 60% 40%;background:#f3d37d;transform:rotate(35deg);box-shadow:65px 30px 0 -2px #f3d37d,130px 8px 0 -4px #f3d37d,185px 45px 0 -3px #f3d37d;left:17%;bottom:29%}
+.rain{position:absolute;inset:8% 5% auto 45%;height:25%;background:repeating-linear-gradient(115deg,transparent 0 16px,rgba(220,239,228,.48) 17px 19px,transparent 20px 33px);transform:skewX(-8deg)}
+.cover-copy{font-family:var(--sans)}.eyebrow{font-weight:850;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);font-size:.78rem}.cover-copy h2{font:700 clamp(2.3rem,5vw,4.8rem)/1.02 var(--serif);color:var(--green);margin:.35rem 0}.cover-copy .sub{font:italic 1.2rem/1.5 var(--serif);color:var(--muted)}.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.1rem 0}.chip{font:.78rem/1.2 var(--sans);font-weight:750;border:1px solid var(--line);padding:.45rem .65rem;border-radius:999px;background:var(--surface)}.actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.2rem}.primary,.secondary{border-radius:999px;padding:.7rem 1rem;font-family:var(--sans);font-weight:800;text-decoration:none;border:1px solid var(--green)}.primary{background:var(--green);color:white}.secondary{background:var(--surface);color:var(--green)}
+.layout{display:grid;grid-template-columns:320px minmax(0,1fr)}.sidebar{position:sticky;top:68px;height:calc(100svh - 68px);overflow:auto;background:var(--surface);border-right:1px solid var(--line);padding:1rem;font-family:var(--sans)}.sidebar h2{color:var(--gold);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em}.toc{list-style:none;padding:0;margin:0}.toc li{border-top:1px solid color-mix(in srgb,var(--line) 50%,transparent)}.toc a{display:grid;grid-template-columns:2.2rem 1fr;gap:.25rem;color:var(--ink);text-decoration:none;padding:.55rem .35rem;font-size:.82rem;line-height:1.25;border-radius:.45rem}.toc a:hover,.toc a.active{background:color-mix(in srgb,var(--gold) 14%,var(--surface));color:var(--green)}.toc a span{color:var(--gold);font-weight:850}.side-note{font-size:.72rem;color:var(--muted);padding:1rem .3rem}
+.reader{padding:clamp(1rem,4vw,4rem)}.article{max-width:var(--width);margin:auto}.chapter{padding:clamp(1.6rem,4vw,3rem) 0;border-bottom:1px solid var(--line);content-visibility:auto;contain-intrinsic-size:820px}.chapter-kicker{font:800 .74rem/1.2 var(--sans);letter-spacing:.12em;color:var(--gold)}.chapter h1{font:700 clamp(1.9rem,5vw,3.2rem)/1.07 var(--serif);color:var(--green);margin:.25rem 0}.chapter-subtitle{font-style:italic;color:var(--muted);font-size:1.06em;margin-top:0}.chapter h3{font:800 .95rem/1.3 var(--sans);color:var(--gold);letter-spacing:.04em;margin:1.45rem 0 .4rem}.chapter p{margin:.72em 0}.chapter ul,.chapter ol{padding-left:1.35em}.chapter li{margin:.35em 0}.dialogue{padding-left:.8rem;border-left:3px solid color-mix(in srgb,var(--gold) 65%,transparent)}.chapter blockquote{margin:1.5rem 0 0;padding:1rem 1.15rem;background:color-mix(in srgb,var(--gold) 10%,var(--surface));border-left:5px solid var(--gold);border-radius:0 .8rem .8rem 0}.chapter blockquote span{font:800 .72rem/1 var(--sans);text-transform:uppercase;letter-spacing:.08em;color:var(--gold)}.chapter blockquote p{font-style:italic;color:var(--green);margin:.35rem 0 0}.chapter-tools{display:flex;gap:.5rem;margin:.9rem 0 1.2rem;font-family:var(--sans)}.mini{font-size:.72rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:.38rem .65rem;text-decoration:none}
+.drawer-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:108}.drawer-bg.open{display:block}.settings{position:fixed;z-index:110;right:0;top:0;width:min(420px,92vw);height:100svh;background:var(--surface);padding:1rem;overflow:auto;transform:translateX(105%);transition:.25s;box-shadow:-14px 0 45px rgba(0,0,0,.25);font-family:var(--sans)}.settings.open{transform:none}.settings-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.settings button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:.6rem;padding:.5rem .7rem}.group{padding:1rem 0;border-bottom:1px solid var(--line)}.group label{display:block;font-weight:800;margin-bottom:.45rem}.row{display:flex;gap:.5rem;flex-wrap:wrap}.row button[aria-pressed=true]{background:var(--green);color:#fff}.range{display:grid;grid-template-columns:1fr auto;gap:.7rem;align-items:center}.range input{width:100%}
+.mobile-nav{display:none}.toast{position:fixed;left:50%;bottom:1rem;transform:translate(-50%,150%);transition:.2s;background:var(--ink);color:var(--paper);padding:.65rem 1rem;border-radius:999px;z-index:130;font:700 .78rem/1.2 var(--sans)}.toast.show{transform:translate(-50%,0)}
+@media(max-width:900px){.layout{display:block}.sidebar{position:fixed;z-index:109;left:0;top:0;width:min(350px,88vw);height:100svh;transform:translateX(-105%);transition:.25s;box-shadow:16px 0 45px rgba(0,0,0,.25);padding-top:calc(1rem + env(safe-area-inset-top))}.sidebar.open{transform:none}.cover{grid-template-columns:minmax(240px,390px);justify-content:center}.cover-copy{text-align:center}.meta,.actions{justify-content:center}.reader{padding-bottom:6rem}.mobile-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:101;background:color-mix(in srgb,var(--surface) 96%,transparent);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:.35rem .2rem calc(.35rem + env(safe-area-inset-bottom));font-family:var(--sans)}.mobile-nav button,.mobile-nav a{border:0;background:transparent;color:var(--ink);text-decoration:none;text-align:center;font-size:.67rem;padding:.3rem}.mobile-nav b{display:block;font-size:1.25rem;line-height:1}}
+@media(max-width:560px){:root{--fs:17px}.topbar{height:62px}.hero{min-height:auto;padding:1rem .8rem 2rem}.cover-art{max-height:67svh}.cover-copy h2{font-size:2.35rem}.reader{padding:1rem .95rem 6rem}.chapter{padding:1.55rem 0}.chapter h1{font-size:1.9rem}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body id="inicio">
+<div id="progress"></div>
+<header class="topbar">
+ <button id="menuBtn" aria-label="Abrir sumário">☰</button>
+ <div class="brand"><strong>PALAVRA, MESA E MISSÃO</strong><span>Volume 2 • A Palavra Entre Nós</span></div>
+ <button id="settingsBtn" aria-label="Ajustar leitura">Aa</button>
+</header>
+
+<section class="hero">
+ <div class="cover">
+  <div class="cover-art" aria-label="Capa simbólica do Volume 2">
+   <div class="rain"></div><div class="land"></div><div class="seed"></div>
+   <div><div class="label">Coleção Palavra, Mesa e Missão</div><h1>A Palavra <em>Entre Nós</em></h1></div>
+   <div class="verse">“A Palavra não deseja apenas passar por nós; deseja habitar entre nós e produzir frutos.”</div>
+   <div class="label">Volume 2 • Cadernos de Formação Cristã Reformada<br>Soli Deo Gloria</div>
+  </div>
+  <div class="cover-copy">
+   <div class="eyebrow">Volume 2 • Caderno Mestre</div>
+   <h2>A Palavra Entre Nós</h2>
+   <p class="sub">O Deus que fala, o Cristo que semeia e o Espírito que produz vida em seu povo</p>
+   <div class="meta"><span class="chip">12 de julho de 2026</span><span class="chip">Leitura responsiva</span><span class="chip">18 capítulos</span></div>
+   <p>Isaías 55.10–13 • Salmo 65.(1–8),9–13 • Romanos 8.1–11 • Mateus 13.1–9,18–23</p>
+   <div class="actions"><a class="primary" href="#01-preparando-o-coracao-para-ouvir-a-palavra">Começar a leitura</a><button class="secondary" id="continueBtn">Continuar de onde parei</button></div>
+  </div>
+ </div>
+</section>
+
+<div class="layout">
+ <aside class="sidebar" id="sidebar" aria-label="Sumário">
+  <h2>Sumário</h2>
+  <ol class="toc"><li><a href="#01-preparando-o-coracao-para-ouvir-a-palavra"><span>01</span>Preparando O Coração Para Ouvir A Palavra</a></li><li><a href="#02-caminhando-pela-palavra"><span>02</span>Caminhando Pela Palavra</a></li><li><a href="#03-escutemos-a-palavra"><span>03</span>Escutemos A Palavra</a></li><li><a href="#04-a-unidade-das-leituras"><span>04</span>A Unidade Das Leituras</a></li><li><a href="#05-a-palavra-que-desce-do-ceu"><span>05</span>A Palavra Que Desce Do Céu</a></li><li><a href="#06-a-criacao-responde-ao-criador"><span>06</span>A Criação Responde Ao Criador</a></li><li><a href="#07-o-espirito-produz-vida"><span>07</span>O Espírito Produz Vida</a></li><li><a href="#08-cristo-o-semeador"><span>08</span>Cristo, O Semeador</a></li><li><a href="#09-doutrinas-reformadas-presentes-nos-textos"><span>09</span>Doutrinas Reformadas Presentes Nos Textos</a></li><li><a href="#10-mensagem-pastoral-e-catequetica"><span>10</span>Mensagem Pastoral E Catequética</a></li><li><a href="#11-viver-a-palavra"><span>11</span>Viver A Palavra</a></li><li><a href="#12-conversando-com-a-palavra"><span>12</span>Conversando Com A Palavra</a></li><li><a href="#13-confissao-de-fe-e-oracao"><span>13</span>Confissão De Fé E Oração</a></li><li><a href="#14-liturgia-dominical-com-santa-ceia"><span>14</span>Liturgia Dominical Com Santa Ceia</a></li><li><a href="#15-ministerio-da-palavra"><span>15</span>Ministério Da Palavra</a></li><li><a href="#16-resposta-da-igreja"><span>16</span>Resposta Da Igreja</a></li><li><a href="#17-celebracao-da-mesa-do-senhor"><span>17</span>Celebração Da Mesa Do Senhor</a></li><li><a href="#18-a-mesa-nos-fortalece"><span>18</span>A Mesa Nos Fortalece</a></li><li><a href="#19-envio-bencao-e-referencias"><span>19</span>Envio, Bênção E Referências</a></li></ol>
+  <div class="side-note">A Palavra nos reúne.<br>A Mesa nos fortalece.<br>A Missão nos envia.<br><strong>Soli Deo Gloria.</strong></div>
+ </aside>
+ <main class="reader"><article class="article" id="article">
+<section class="chapter" id="01-preparando-o-coracao-para-ouvir-a-palavra" data-title="Preparando O Coração Para Ouvir A Palavra">
+  <div class="chapter-kicker">CAPÍTULO 01</div>
+  <h1>Preparando O Coração Para Ouvir A Palavra</h1>
+  <p class="chapter-subtitle">A Palavra que vem de Deus deseja habitar entre nós</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="01-preparando-o-coracao-para-ouvir-a-palavra">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <p>Antes de abrirmos a Bíblia para estudar, somos convidados a silenciar as muitas vozes que disputam nossa atenção. Deus não nos reúne apenas para transmitir informações, mas para formar em nós a mente de Cristo, fortalecer a fé e conduzir-nos à obediência.</p>
+<p>As leituras deste domingo apresentam um único movimento da graça. Em Isaías, a Palavra desce como chuva e cumpre o propósito de Deus. No Salmo, a terra regada responde com abundância e louvor. Em Romanos, o Espírito produz vida nos que estão em Cristo. No Evangelho, Jesus mostra que a Palavra é semeada e chama seus ouvintes a recebê-la com profundidade e perseverança.</p>
+<p>Não estudaremos apenas uma parábola. Perguntaremos como a Palavra proclamada pode encontrar espaço em nossa vida pessoal, familiar e comunitária. Peçamos ao Espírito Santo que prepare o coração, remova a dureza, aprofunde as raízes e produza frutos.</p>
+<p>Oremos: Senhor, abre nosso entendimento. Faz-nos ouvir com reverência, compreender pela fé, contemplar Cristo e viver em obediência. Amém.</p>
+  <blockquote><span>Para guardar no coração</span><p>A Palavra de Deus não deseja apenas passar por nós; deseja habitar entre nós.</p></blockquote>
+</section>
+<section class="chapter" id="02-caminhando-pela-palavra" data-title="Caminhando Pela Palavra">
+  <div class="chapter-kicker">CAPÍTULO 02</div>
+  <h1>Caminhando Pela Palavra</h1>
+  <p class="chapter-subtitle">Tema, objetivos e método da aula</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="02-caminhando-pela-palavra">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <h3>TEMA</h3>
+<p>A Palavra Entre Nós</p>
+<h3>TEXTOS BÍBLICOS</h3>
+<p>Isaías 55.10–13; Salmo 65.(1–8),9–13; Romanos 8.1–11; Mateus 13.1–9,18–23.</p>
+<p>OBJETIVOS</p>
+<p>Conhecer<br>◆ compreender a unidade das leituras deste domingo;<br>◆ reconhecer a imagem da Palavra como chuva e semente;<br>◆ identificar Cristo como o Semeador e a Palavra viva.</p>
+<p>Compreender<br>◆ por que a Palavra cumpre o propósito de Deus;<br>◆ como o Espírito prepara e vivifica o coração;<br>◆ por que ouvir biblicamente envolve fé, compreensão e perseverança.</p>
+<p>Viver<br>◆ examinar como temos recebido a Palavra;<br>◆ remover os espinhos que sufocam a fé;<br>◆ cultivar frutos do Evangelho na igreja e na sociedade.</p>
+<h3>O MÉTODO DA AULA</h3>
+<p>Ouvir — O que o texto diz?</p><p>Compreender — O que significava aos primeiros ouvintes?</p><p>Contemplar — O que revela sobre Deus e como aponta para Cristo?</p><p>Viver — Como essa Palavra transforma nossa vida hoje?</p>
+  <blockquote><span>Para guardar no coração</span><p>Primeiro despertamos a escuta; depois caminhamos pelo texto; finalmente respondemos com a vida.</p></blockquote>
+</section>
+<section class="chapter" id="03-escutemos-a-palavra" data-title="Escutemos A Palavra">
+  <div class="chapter-kicker">CAPÍTULO 03</div>
+  <h1>Escutemos A Palavra</h1>
+  <p class="chapter-subtitle">Orientações para a leitura comunitária</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="03-escutemos-a-palavra">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <p>Leia as passagens na tradução bíblica utilizada pela comunidade. Comece por Mateus 13.1–9,18–23 e convide a classe a observar as imagens do semeador, da semente, dos solos e da colheita.</p>
+<p>Em seguida, leia Isaías 55.10–13, observando a chuva, a neve, a terra, a semente e o pão. Leia Romanos 8.1–11, destacando a vida no Espírito. Finalize com o Salmo 65, percebendo a criação inteira respondendo à graça de Deus.</p>
+<p>Após as leituras, faça um breve silêncio. Não apresse a explicação. Permita que a comunidade ouça primeiro a voz das Escrituras.</p>
+<h3>PERGUNTAS INICIAIS</h3>
+<p>1. Qual imagem das leituras mais chamou sua atenção?</p><p>2. O que significa dizer que a Palavra não volta vazia?</p><p>3. Quais obstáculos impedem a Palavra de criar raízes?</p><p>4. Que frutos esperamos ver na vida de uma igreja alcançada pelo Evangelho?</p>
+<p>O professor deve recordar: primeiro despertamos a curiosidade, mostramos o caminho e somente depois iniciamos a exposição.</p>
+  <blockquote><span>Para guardar no coração</span><p>Antes de explicar a Palavra, a Igreja aprende a ouvi-la.</p></blockquote>
+</section>
+<section class="chapter" id="04-a-unidade-das-leituras" data-title="A Unidade Das Leituras">
+  <div class="chapter-kicker">CAPÍTULO 04</div>
+  <h1>A Unidade Das Leituras</h1>
+  <p class="chapter-subtitle">Uma única mensagem em quatro testemunhos</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="04-a-unidade-das-leituras">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <p>As quatro leituras não são peças independentes. Juntas, anunciam a ação soberana e graciosa de Deus.</p>
+<h3>ISAÍAS 55</h3>
+<p>A Palavra sai da boca de Deus como chuva que fecunda a terra. Ela realiza o propósito para o qual foi enviada.</p>
+<h3>SALMO 65</h3>
+<p>O Criador visita a terra, rega os campos e dá crescimento. A criação responde à providência com abundância e louvor.</p>
+<h3>ROMANOS 8</h3>
+<p>O Espírito Santo aplica a obra de Cristo, liberta da condenação e produz vida onde o pecado gerava morte.</p>
+<h3>MATEUS 13</h3>
+<p>Cristo semeia generosamente a Palavra do Reino. Os diferentes solos revelam as formas como essa Palavra é recebida.</p>
+<p>O movimento é claro: Deus fala, Cristo semeia, o Espírito vivifica e a criação frutifica. A Igreja não é a origem desse movimento; é alcançada por ele e chamada a participar.</p>
+<p>A unidade das leituras protege-nos de reduzir a parábola a uma lição moral. A boa terra não representa superioridade humana; testemunha a graça que prepara, sustenta e faz frutificar.</p>
+  <blockquote><span>Para guardar no coração</span><p>Deus envia a Palavra, Cristo a semeia, o Espírito a vivifica e a Igreja frutifica.</p></blockquote>
+</section>
+<section class="chapter" id="05-a-palavra-que-desce-do-ceu" data-title="A Palavra Que Desce Do Céu">
+  <div class="chapter-kicker">CAPÍTULO 05</div>
+  <h1>A Palavra Que Desce Do Céu</h1>
+  <p class="chapter-subtitle">Isaías 55.10–13</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="05-a-palavra-que-desce-do-ceu">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <p>Isaías compara a Palavra de Deus à chuva e à neve. Ambas descem do céu, regam a terra, fazem nascer a semente e oferecem pão. Assim também a Palavra divina não retorna vazia: cumpre aquilo que Deus deseja.</p>
+<p>Essa imagem revela a soberania de Deus. O Senhor não pronuncia desejos incertos. Sua Palavra possui a autoridade e a eficácia daquele que a envia. A resistência humana é real, mas não possui a palavra final sobre os propósitos divinos.</p>
+<p>A Igreja reformada confessa que as Escrituras são a Palavra de Deus e que, quando são lidas e proclamadas com fidelidade, o próprio Deus dirige-se ao seu povo. A esperança não repousa na habilidade do pregador, mas na fidelidade de Deus.</p>
+<p>A Palavra também produz uma saída alegre: montes e colinas cantam; árvores batem palmas; espinhos cedem lugar a ciprestes. A salvação aponta para a renovação da criação.</p>
+<p>Ouvir Isaías 55 é receber consolo e convocação. Consolo, porque Deus não abandona sua obra. Convocação, porque a Igreja deve proclamar com confiança, sem manipular resultados e sem substituir o Evangelho por mensagens mais atraentes aos olhos do mundo.</p>
+  <blockquote><span>Para guardar no coração</span><p>A eficácia da Palavra depende da fidelidade de Deus, não da força humana.</p></blockquote>
+</section>
+<section class="chapter" id="06-a-criacao-responde-ao-criador" data-title="A Criação Responde Ao Criador">
+  <div class="chapter-kicker">CAPÍTULO 06</div>
+  <h1>A Criação Responde Ao Criador</h1>
+  <p class="chapter-subtitle">Salmo 65.(1–8),9–13</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="06-a-criacao-responde-ao-criador">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <p>O Salmo 65 transforma a criação em uma grande liturgia. Deus ouve a oração, perdoa as transgressões, firma os montes, acalma os mares e visita a terra com abundância.</p>
+<p>A providência divina não é ideia abstrata. Manifesta-se na água que rega, no solo que produz, no pão que alimenta e nas estações que sustentam a vida. A criação inteira depende do cuidado contínuo de Deus.</p>
+<p>Essa doutrina não produz passividade. Porque Deus cuida da criação, seu povo é chamado a cuidar dela. Porque Deus oferece pão, somos chamados a compartilhá-lo. Porque ele acolhe pecadores, a comunidade deve tornar-se espaço de reconciliação.</p>
+<p>O Salmo corrige uma espiritualidade que separa salvação e criação. O Deus que perdoa é o mesmo que rega os campos. A graça alcança a pessoa inteira e aponta para a renovação de todas as coisas.</p>
+<p>Na Mesa do Senhor, recebemos pão e cálice como dádivas da criação e sinais da graça. A gratidão eucarística amplia nosso olhar: tudo vem de Deus, tudo é sustentado por Deus e tudo deve retornar a ele em louvor e serviço.</p>
+  <blockquote><span>Para guardar no coração</span><p>A criação inteira testemunha a generosidade do Deus que dá crescimento.</p></blockquote>
+</section>
+<section class="chapter" id="07-o-espirito-produz-vida" data-title="O Espírito Produz Vida">
+  <div class="chapter-kicker">CAPÍTULO 07</div>
+  <h1>O Espírito Produz Vida</h1>
+  <p class="chapter-subtitle">Romanos 8.1–11</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="07-o-espirito-produz-vida">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <p>Romanos 8 começa com uma das declarações mais preciosas do Evangelho: “Agora, pois, já nenhuma condenação há para os que estão em Cristo Jesus.”</p>
+<p>A vida cristã não começa com a tentativa de merecer aceitação, mas com a notícia de que, em Cristo, Deus perdoa, liberta e concede seu Espírito. A justificação é obra da graça: somos recebidos não por nossos méritos, mas pela justiça de Cristo.</p>
+<p>Paulo contrasta a vida segundo a carne e a vida segundo o Espírito. “Carne” não significa simplesmente o corpo, mas a existência orientada pelo pecado e fechada para Deus.</p>
+<p>O Espírito realiza aquilo que não conseguimos produzir por nós mesmos. Ele ilumina a Palavra, convence do pecado, desperta a fé, sustenta a perseverança e produz santidade.</p>
+<p>Aqui encontramos a doutrina da união com Cristo. O cristão não é apenas admirador de Jesus; foi unido a ele pela fé. Sua morte é nossa libertação, sua justiça é nossa esperança e sua ressurreição é garantia de nossa vida.</p>
+<p>O mesmo Espírito que ressuscitou Jesus habita em seu povo. Por isso, a santificação não é obra independente da salvação. É a continuação da graça que nos alcançou.</p>
+  <blockquote><span>Para guardar no coração</span><p>O mesmo Deus que nos justifica em Cristo também nos transforma pelo Espírito.</p></blockquote>
+</section>
+<section class="chapter" id="08-cristo-o-semeador" data-title="Cristo, O Semeador">
+  <div class="chapter-kicker">CAPÍTULO 08</div>
+  <h1>Cristo, O Semeador</h1>
+  <p class="chapter-subtitle">Mateus 13.1–9,18–23</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="08-cristo-o-semeador">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <p>Jesus conta uma história retirada do cotidiano da agricultura. Um semeador sai para lançar a semente. Parte cai no caminho, outra em solo pedregoso, outra entre espinhos e outra em boa terra.</p>
+<p>O Semeador revela a generosidade do Reino. A semente é lançada amplamente, inclusive onde o resultado parece incerto. Cristo não limita a Palavra aos que aparentam estar preparados.</p>
+<p>Jesus não é apenas intérprete da Palavra; é o centro das Escrituras e a Palavra eterna feita carne. A Lei prepara seu caminho, os profetas anunciam sua vinda, os Salmos alimentam a esperança e o Novo Testamento proclama seu cumprimento.</p>
+<p>Os solos revelam diferentes formas de recepção. Há dureza, superficialidade, sufocamento e fruto. A parábola não foi dada para classificarmos os outros. Ela chama cada pessoa e cada comunidade ao autoexame.</p>
+<p>A boa terra ouve, compreende e frutifica. Ouvir biblicamente não significa apenas perceber sons. É acolher, confiar e obedecer.</p>
+<p>A colheita varia: cem, sessenta ou trinta por um. O Senhor não exige resultados idênticos, mas fidelidade. Toda colheita verdadeira pertence a ele.</p>
+  <blockquote><span>Para guardar no coração</span><p>Cristo semeia com generosidade e chama a Igreja a receber, perseverar e frutificar.</p></blockquote>
+</section>
+<section class="chapter" id="09-doutrinas-reformadas-presentes-nos-textos" data-title="Doutrinas Reformadas Presentes Nos Textos">
+  <div class="chapter-kicker">CAPÍTULO 09</div>
+  <h1>Doutrinas Reformadas Presentes Nos Textos</h1>
+  <p class="chapter-subtitle">A graça de Deus do início ao fim</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="09-doutrinas-reformadas-presentes-nos-textos">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <h3>SOBERANIA DE DEUS</h3>
+<p>A Palavra cumpre o propósito divino. A história da salvação depende da fidelidade do Senhor.</p>
+<h3>AUTORIDADE E EFICÁCIA DAS ESCRITURAS</h3>
+<p>Deus fala por meio de sua Palavra. A pregação fiel é instrumento do Espírito.</p>
+<h3>CENTRALIDADE DE CRISTO</h3>
+<p>Jesus é o Semeador, a Palavra viva e o cumprimento das promessas.</p>
+<h3>DEPRAVAÇÃO HUMANA</h3>
+<p>O pecado alcança entendimento, vontade e afetos. O coração não se torna boa terra por autonomia moral.</p>
+<h3>GRAÇA EFICAZ</h3>
+<p>O Espírito quebra a dureza, aprofunda raízes, remove espinhos e desperta a fé.</p>
+<h3>JUSTIFICAÇÃO PELA FÉ</h3>
+<p>Não há condenação para os que estão em Cristo. Somos aceitos pela graça, mediante a fé.</p>
+<h3>SANTIFICAÇÃO</h3>
+<p>O Espírito produz vida e frutos. A obediência é resposta agradecida.</p>
+<h3>PROVIDÊNCIA</h3>
+<p>Deus sustenta a criação, oferece pão e conduz a história.</p>
+<h3>MEIOS DE GRAÇA</h3>
+<p>A Palavra, os sacramentos e a oração são instrumentos pelos quais Deus forma seu povo.</p>
+  <blockquote><span>Para guardar no coração</span><p>A salvação é do Senhor: planejada pelo Pai, realizada pelo Filho e aplicada pelo Espírito.</p></blockquote>
+</section>
+<section class="chapter" id="10-mensagem-pastoral-e-catequetica" data-title="Mensagem Pastoral E Catequética">
+  <div class="chapter-kicker">CAPÍTULO 10</div>
+  <h1>Mensagem Pastoral E Catequética</h1>
+  <p class="chapter-subtitle">A Palavra Entre Nós</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="10-mensagem-pastoral-e-catequetica">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <p>Irmãos e irmãs, as leituras deste domingo nos colocam diante de uma verdade profundamente consoladora: Deus fala e sua Palavra age.</p>
+<p>Em Isaías, a Palavra desce como chuva e não volta vazia. No Salmo, Deus visita a terra, rega os campos e faz brotar a vida. Em Romanos, o Espírito vivifica aqueles que estão em Cristo. No Evangelho, Jesus apresenta a Palavra como semente lançada sobre diferentes solos.</p>
+<p>As imagens são diferentes, mas a mensagem é uma só: Deus dá a Palavra, prepara a terra e produz a colheita. Nossa fé não começa em nossa capacidade de buscar a Deus; começa na iniciativa graciosa daquele que vem até nós e cria vida onde havia esterilidade.</p>
+<p>Isaías ensina que Deus não fala em vão. A Igreja, portanto, não vive de técnicas religiosas ou mensagens motivacionais, mas da Palavra que Deus pronunciou. No Evangelho, Cristo aparece como o Semeador. Ele não apenas explica a Palavra; é o centro dela.</p>
+<p>A parábola dos solos não nos foi entregue para classificarmos outras pessoas. Ela chama ao autoexame. Em diferentes momentos, revelamos dureza, superficialidade e espinhos. O pecado alcança entendimento, vontade e afetos. Por isso, precisamos da graça que quebra, aprofunda, limpa e prepara.</p>
+<p>A boa notícia de Romanos 8 é que o Evangelho não começa dizendo: “Torne-se boa terra para que Deus o aceite.” Ele anuncia: “Em Cristo não há condenação; pelo Espírito há vida.”</p>
+<p>Os frutos não são a causa da salvação, mas sua consequência. Não obedecemos para comprar a graça; obedecemos porque a graça nos alcançou.</p>
+<p>Uma Igreja frutífera não é medida somente pelo número de atividades. É reconhecida quando os orgulhosos aprendem a servir, os indiferentes aprendem a amar, os feridos encontram acolhimento, os culpados encontram perdão e os desesperados encontram esperança.</p>
+<p>Deus envia a Palavra. Cristo semeia o Reino. O Espírito prepara o coração. A Igreja recebe, cresce e frutifica.</p>
+  <blockquote><span>Para guardar no coração</span><p>A Palavra foi enviada não apenas para informar nossa mente, mas para transformar nossa vida.</p></blockquote>
+</section>
+<section class="chapter" id="11-viver-a-palavra" data-title="Viver A Palavra">
+  <div class="chapter-kicker">CAPÍTULO 11</div>
+  <h1>Viver A Palavra</h1>
+  <p class="chapter-subtitle">Aplicações pessoais e comunitárias</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="11-viver-a-palavra">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <h3>EXAMINE A DUREZA</h3>
+<p>Há alguma área da vida em que já não desejamos ouvir Deus?</p>
+<h3>APROFUNDE AS RAÍZES</h3>
+<p>Nossa fé permanece quando a emoção diminui?</p>
+<h3>REMOVA OS ESPINHOS</h3>
+<p>Quais preocupações, desejos, ressentimentos ou ambições disputam espaço com a Palavra?</p>
+<h3>RECONHEÇA A GRAÇA</h3>
+<p>A boa terra não pode se gloriar. Toda fertilidade espiritual é dom.</p>
+<h3>PRATIQUE OS MEIOS DE GRAÇA</h3>
+<p>Leia as Escrituras, participe da comunhão, ore, receba os sacramentos e sirva.</p>
+<h3>PRODUZA FRUTOS</h3>
+<p>Arrependimento, fé, amor, justiça, misericórdia, reconciliação e perseverança.</p>
+<h3>MISSÃO DA SEMANA</h3>
+<p>◆ Leia Mateus 13.1–23 diariamente.</p><p>◆ Identifique um espinho que precisa ser removido.</p><p>◆ Memorize Mateus 13.23.</p><p>◆ Pratique um gesto de reconciliação ou serviço.</p><p>◆ Compartilhe o que Deus lhe ensinou.</p>
+  <blockquote><span>Para guardar no coração</span><p>O fruto verdadeiro é uma vida cada vez mais semelhante a Cristo.</p></blockquote>
+</section>
+<section class="chapter" id="12-conversando-com-a-palavra" data-title="Conversando Com A Palavra">
+  <div class="chapter-kicker">CAPÍTULO 12</div>
+  <h1>Conversando Com A Palavra</h1>
+  <p class="chapter-subtitle">Perguntas para a classe e pequenos grupos</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="12-conversando-com-a-palavra">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <ol><li>O que a chuva em Isaías 55 revela sobre a ação de Deus?</li><li>Por que a eficácia da Palavra não depende da eloquência humana?</li><li>Como Cristo cumpre as promessas dos profetas?</li><li>Em que momentos o coração se torna caminho endurecido?</li><li>Qual a diferença entre entusiasmo religioso e fé enraizada?</li><li>Quais espinhos são mais comuns em nossa realidade?</li><li>O que Romanos 8 ensina sobre justificação e vida no Espírito?</li><li>Como o Salmo 65 relaciona graça, criação e gratidão?</li><li>Que frutos já reconhecemos na comunidade?</li><li>Que frutos ainda precisamos pedir ao Senhor?</li></ol>
+<h3>DINÂMICA</h3>
+<p>Entregue quatro papéis a cada participante. Em cada um, escreva:</p><p>◆ uma dureza que precisa ser quebrada;</p><p>◆ uma área em que faltam raízes;</p><p>◆ um espinho que precisa ser removido;</p><p>◆ um fruto que deseja cultivar.</p>
+<p>Finalize com oração, preservando a privacidade de cada participante.</p>
+  <blockquote><span>Para guardar no coração</span><p>A Palavra examina nosso coração para conduzir-nos à graça, não à condenação.</p></blockquote>
+</section>
+<section class="chapter" id="13-confissao-de-fe-e-oracao" data-title="Confissão De Fé E Oração">
+  <div class="chapter-kicker">CAPÍTULO 13</div>
+  <h1>Confissão De Fé E Oração</h1>
+  <p class="chapter-subtitle">A Igreja responde à Palavra</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="13-confissao-de-fe-e-oracao">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <p>CONFISSÃO DE FÉ</p>
+<p class="dialogue"><strong>Dirigente:</strong> Cremos no Deus que envia sua Palavra.</p>
+<p class="dialogue"><strong>Congregação:</strong> Sua Palavra é viva, fiel e não volta vazia.</p>
+<p class="dialogue"><strong>Dirigente:</strong> Cremos em Jesus Cristo, o Semeador do Reino.</p>
+<p class="dialogue"><strong>Congregação:</strong> Nele recebemos perdão, vida e esperança.</p>
+<p class="dialogue"><strong>Dirigente:</strong> Cremos no Espírito Santo.</p>
+<p class="dialogue"><strong>Congregação:</strong> Ele prepara nosso coração, fortalece nossa fé e produz frutos de santidade.</p>
+<p class="dialogue"><strong>Todos:</strong> Cremos que somos salvos somente pela graça, mediante a fé, por causa de Cristo. Recebemos a Palavra com gratidão e nos oferecemos para vivê-la em missão. A Deus seja toda a glória. Amém.</p>
+<h3>ORAÇÃO</h3>
+<p>Senhor, quebra nossa dureza, aprofunda nossas raízes e remove os espinhos. Faz de tua Igreja um campo de esperança. Que tua Palavra produza arrependimento e fé, amor e justiça, mansidão e coragem, comunhão e missão. Por Jesus Cristo, a Palavra viva. Amém.</p>
+  <blockquote><span>Para guardar no coração</span><p>A Igreja confessa com a boca e confirma sua fé por meio de frutos.</p></blockquote>
+</section>
+<section class="chapter" id="14-liturgia-dominical-com-santa-ceia" data-title="Liturgia Dominical Com Santa Ceia">
+  <div class="chapter-kicker">CAPÍTULO 14</div>
+  <h1>Liturgia Dominical Com Santa Ceia</h1>
+  <p class="chapter-subtitle">Preparação, adoração e reconciliação</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="14-liturgia-dominical-com-santa-ceia">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <p>PRELÚDIO E ACOLHIDA</p>
+<p>Saudação apostólica: “A graça do Senhor Jesus Cristo, o amor de Deus e a comunhão do Espírito Santo sejam com todos.”</p>
+<p>CONVITE À ADORAÇÃO — Salmo 65</p>
+<p class="dialogue"><strong>Dirigente:</strong> A ti, ó Deus, é devido o louvor.</p>
+<p class="dialogue"><strong>Congregação:</strong> Tu visitas a terra e a regas; tu a enriqueces abundantemente.</p>
+<h3>ORAÇÃO DE INVOCAÇÃO</h3>
+<p>Deus da aliança, reúne-nos em tua presença. Pelo Espírito, recebe nosso louvor e faz tua Palavra habitar ricamente entre nós. Amém.</p>
+<h3>CÂNTICO DE ADORAÇÃO</h3>
+<p>Sugestão: “Santo, Santo, Santo”.</p>
+<h3>CHAMADO À CONFISSÃO</h3>
+<p>O Senhor continua semeando sua Palavra. Examinemos o coração e confessemos a dureza, a superficialidade e os espinhos.</p>
+<p>ORAÇÃO DE CONFISSÃO E SILÊNCIO</p>
+<p>DECLARAÇÃO DA GRAÇA — Romanos 8.1<br>“Agora, pois, já nenhuma condenação há para os que estão em Cristo Jesus.”</p>
+<h3>MOMENTO DE LOUVOR — A IGREJA AGRADECIDA LOUVA</h3>
+<p>Cântico 1: “Graça Maravilhosa”</p><p>Cântico 2: “Tu És Fiel, Senhor”</p>
+  <blockquote><span>Para guardar no coração</span><p>A graça recebida conduz naturalmente ao louvor.</p></blockquote>
+</section>
+<section class="chapter" id="15-ministerio-da-palavra" data-title="Ministério Da Palavra">
+  <div class="chapter-kicker">CAPÍTULO 15</div>
+  <h1>Ministério Da Palavra</h1>
+  <p class="chapter-subtitle">Oração, leituras, responsos e proclamação</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="15-ministerio-da-palavra">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <h3>ORAÇÃO DE ILUMINAÇÃO</h3>
+<p>Senhor, envia sobre nós o teu Espírito. Abre o entendimento, prepara o coração e faz-nos receber tua Palavra com fé. Amém.</p>
+<p>LEITURA DO ANTIGO TESTAMENTO — Isaías 55.10–13</p>
+<p class="dialogue"><strong>Dirigente:</strong> A Palavra do Senhor permanece para sempre.</p>
+<p class="dialogue"><strong>Congregação:</strong> Sua Palavra não voltará vazia.</p>
+<p>LEITURA DO SALMO — Salmo 65.(1–8),9–13</p>
+<p>LEITURA DO NOVO TESTAMENTO — Romanos 8.1–11</p>
+<p class="dialogue"><strong>Dirigente:</strong> A Palavra do Senhor permanece para sempre.</p>
+<p class="dialogue"><strong>Congregação:</strong> Sua Palavra não voltará vazia.</p>
+<p>LEITURA DO EVANGELHO — Mateus 13.1–9,18–23</p>
+<p class="dialogue"><strong>Dirigente:</strong> O Senhor semeia sua Palavra.</p>
+<p class="dialogue"><strong>Congregação:</strong> Dá-nos um coração fértil para recebê-la.</p>
+<h3>PROCLAMAÇÃO DA PALAVRA</h3>
+<p>Tema: A Palavra Entre Nós.</p>
+<h3>SILÊNCIO</h3>
+<p>Breve momento para acolher a Palavra proclamada.</p>
+  <blockquote><span>Para guardar no coração</span><p>O Espírito ilumina a Palavra, e a Palavra ensina-nos a reconhecer a obra do Espírito.</p></blockquote>
+</section>
+<section class="chapter" id="16-resposta-da-igreja" data-title="Resposta Da Igreja">
+  <div class="chapter-kicker">CAPÍTULO 16</div>
+  <h1>Resposta Da Igreja</h1>
+  <p class="chapter-subtitle">Fé, intercessão, gratidão e ofertório</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="16-resposta-da-igreja">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <h3>CONFISSÃO DE FÉ</h3>
+<p>Utilizar a confissão responsiva deste caderno ou o Credo Apostólico.</p>
+<h3>INTERCESSÃO E AÇÃO DE GRAÇAS</h3>
+<p>A Igreja ora:</p><p>◆ pela Igreja universal e pela missão;</p><p>◆ pelas autoridades e pela paz;</p><p>◆ pelos enfermos, enlutados e necessitados;</p><p>◆ pelas famílias, crianças, jovens e idosos;</p><p>◆ pela criação e pelos que sofrem com a injustiça;</p><p>◆ pelas bênçãos recebidas e pelos frutos da Palavra.</p>
+<h3>OFERTÓRIO</h3>
+<p class="dialogue"><strong>Dirigente:</strong> O Deus que dá semente ao semeador e pão para alimento também multiplica os frutos da justiça. Apresentemos nossas ofertas e nossa vida com gratidão.</p>
+<h3>CÂNTICO DE DEDICAÇÃO</h3>
+<p>Sugestão: “Tudo Entregarei” ou outra doxologia apropriada.</p>
+<h3>TRANSIÇÃO À MESA</h3>
+<p>A Palavra nos reuniu e formou. Agora Cristo nos fortalece na comunhão de sua Mesa.</p>
+  <blockquote><span>Para guardar no coração</span><p>A oferta é resposta agradecida à graça, não pagamento por ela.</p></blockquote>
+</section>
+<section class="chapter" id="17-celebracao-da-mesa-do-senhor" data-title="Celebração Da Mesa Do Senhor">
+  <div class="chapter-kicker">CAPÍTULO 17</div>
+  <h1>Celebração Da Mesa Do Senhor</h1>
+  <p class="chapter-subtitle">Convite e Grande Oração de Ação de Graças</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="17-celebracao-da-mesa-do-senhor">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <h3>CONVITE À MESA</h3>
+<p>Esta é a Mesa do Senhor Jesus Cristo. Aproximamo-nos não porque somos dignos, mas porque Cristo é gracioso e fiel.</p>
+<p>GRANDE ORAÇÃO DE AÇÃO DE GRAÇAS — RESPONSIVA</p>
+<p class="dialogue"><strong>Dirigente:</strong> O Senhor esteja convosco.</p>
+<p class="dialogue"><strong>Congregação:</strong> Ele está no meio de nós.</p>
+<p class="dialogue"><strong>Dirigente:</strong> Elevemos os nossos corações.</p>
+<p class="dialogue"><strong>Congregação:</strong> Ao Senhor os elevamos.</p>
+<p class="dialogue"><strong>Dirigente:</strong> Demos graças ao Senhor, nosso Deus.</p>
+<p class="dialogue"><strong>Congregação:</strong> É digno e justo dar-lhe graças e louvor.</p>
+<p class="dialogue"><strong>Dirigente:</strong> É verdadeiramente digno e justo dar-te graças, ó Deus eterno. Fizeste todas as coisas por tua Palavra e sustentas a criação com fidelidade. Falaste pela Lei, pelos Profetas e pelos Salmos, anunciando tua salvação.</p>
+<p>Neste dia recordamos que tua Palavra desce como chuva, Cristo a semeia generosamente e o Espírito produz vida. Por isso, com a Igreja de todos os tempos, proclamamos:</p>
+<p class="dialogue"><strong>Todos:</strong> Santo, Santo, Santo, Senhor Deus do universo. Os céus e a terra proclamam tua glória. Hosana nas alturas. Bendito o que vem em nome do Senhor. Hosana nas alturas.</p>
+  <blockquote><span>Para guardar no coração</span><p>Na Mesa, a Igreja dá graças pela criação, pela redenção e pela esperança da nova criação.</p></blockquote>
+</section>
+<section class="chapter" id="18-a-mesa-nos-fortalece" data-title="A Mesa Nos Fortalece">
+  <div class="chapter-kicker">CAPÍTULO 18</div>
+  <h1>A Mesa Nos Fortalece</h1>
+  <p class="chapter-subtitle">Instituição, memorial, epiclese e comunhão</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="18-a-mesa-nos-fortalece">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <h3>CONTINUAÇÃO DA GRANDE ORAÇÃO</h3>
+<p>Nós te bendizemos porque enviaste teu Filho. Ele anunciou o Reino, acolheu pecadores, entregou-se na cruz, ressuscitou dentre os mortos e reina para sempre.</p>
+<p>PALAVRAS DA INSTITUIÇÃO — 1 Coríntios 11.23–26</p>
+<h3>MEMORIAL</h3>
+<p class="dialogue"><strong>Dirigente:</strong> Eis o mistério da fé.</p><p class="dialogue"><strong>Congregação:</strong> Anunciamos a morte do Senhor. Proclamamos sua ressurreição. Esperamos sua gloriosa vinda.</p>
+<h3>EPICLESE</h3>
+<p>Envia teu Espírito sobre a Igreja reunida. Une-nos a Cristo pela fé. Faz deste pão e deste cálice sinais eficazes da comunhão com teu Filho. Alimenta-nos com tua graça, conserva-nos na unidade e envia-nos em missão.</p>
+<h3>DOXOLOGIA</h3>
+<p class="dialogue"><strong>Todos:</strong> Por Cristo, com Cristo e em Cristo, a ti toda honra e glória, agora e para sempre. Amém.</p>
+<h3>PAI NOSSO, FRAÇÃO DO PÃO E DISTRIBUIÇÃO</h3>
+<p>Cânticos sugeridos: “Pão da Vida” e “Ao Pé da Cruz”.</p>
+<h3>ORAÇÃO APÓS A COMUNHÃO</h3>
+<p>Nós te damos graças porque, nesta Mesa, fortaleceste nossa fé e renovaste nossa esperança. Envia-nos para servir com alegria e testemunhar teu Reino. Amém.</p>
+  <blockquote><span>Para guardar no coração</span><p>A Mesa não encerra a missão; ela fortalece a Igreja para vivê-la.</p></blockquote>
+</section>
+<section class="chapter" id="19-envio-bencao-e-referencias" data-title="Envio, Bênção E Referências">
+  <div class="chapter-kicker">CAPÍTULO 19</div>
+  <h1>Envio, Bênção E Referências</h1>
+  <p class="chapter-subtitle">A missão continua na vida</p>
+  <div class="chapter-tools">
+    <button class="mini" data-share-section="19-envio-bencao-e-referencias">Compartilhar</button>
+    <a class="mini link" href="#inicio">Voltar ao início</a>
+  </div>
+  <h3>ENVIO RESPONSIVO</h3>
+<p class="dialogue"><strong>Dirigente:</strong> A Palavra nos reuniu.</p><p class="dialogue"><strong>Congregação:</strong> A Mesa nos fortaleceu.</p><p class="dialogue"><strong>Dirigente:</strong> Agora o Senhor nos envia.</p><p class="dialogue"><strong>Congregação:</strong> Serviremos a Cristo com alegria, até que ele venha.</p><p class="dialogue"><strong>Dirigente:</strong> Que a Palavra permaneça em nossos corações e produza frutos.</p><p class="dialogue"><strong>Congregação:</strong> Com a ajuda do Espírito, viveremos a Palavra e compartilharemos a esperança.</p><p class="dialogue"><strong>Todos:</strong> Soli Deo Gloria!</p>
+<h3>BÊNÇÃO PASTORAL</h3>
+<p>Que o Deus da esperança os encha de toda alegria e paz no vosso crer. E que a graça de Jesus Cristo, o amor de Deus e a comunhão do Espírito Santo sejam com todos, hoje e sempre. Amém.</p>
+<h3>REFERÊNCIAS</h3>
+<p>BÍBLIA. Bíblia Sagrada. Almeida Revista e Atualizada. SBB, 2011.</p><p>CALVINO, João. As Institutas da Religião Cristã. Cultura Cristã, 2006.</p><p>CARSON, D. A. O Comentário de Mateus. Shedd.</p><p>HENDRIKSEN, William. Comentário do Novo Testamento: Mateus. Cultura Cristã.</p><p>STOTT, John. A Mensagem de Romanos. ABU.</p>
+<h3>LEITURAS COMPLEMENTARES</h3>
+<p>Confissão de Fé de Westminster, caps. I, X, XIII e XIV; Catecismo de Heidelberg, domingos 7, 25 e 32; Marcos 4; Lucas 8; João 15; 1 Coríntios 3.5–9; Gálatas 5.22–23.</p>
+  <blockquote><span>Para guardar no coração</span><p>A Palavra nos reúne. A Mesa nos fortalece. A Missão nos envia.</p></blockquote>
+</section></article></main>
+</div>
+
+<div class="drawer-bg" id="drawerBg"></div>
+<aside class="settings" id="settings">
+ <div class="settings-head"><h2>Ajustar leitura</h2><button id="closeSettings">Fechar</button></div>
+ <div class="group"><label>Tema</label><div class="row">
+  <button data-theme="light" aria-pressed="true">Claro</button><button data-theme="sepia" aria-pressed="false">Sépia</button><button data-theme="dark" aria-pressed="false">Escuro</button>
+ </div></div>
+ <div class="group"><label for="fontRange">Tamanho da fonte</label><div class="range"><input id="fontRange" type="range" min="15" max="26" value="18"><output id="fontOut">18 px</output></div></div>
+ <div class="group"><label for="lineRange">Espaçamento entre linhas</label><div class="range"><input id="lineRange" type="range" min="145" max="210" value="172"><output id="lineOut">1,72</output></div></div>
+ <div class="group"><label><input id="contrast" type="checkbox"> Alto contraste</label></div>
+ <div class="group"><button id="resetBtn">Restaurar padrão</button></div>
+</aside>
+
+<nav class="mobile-nav">
+ <button id="mobileMenu"><b>☰</b>Sumário</button>
+ <a href="#inicio"><b>⌂</b>Início</a>
+ <button id="mobileSettings"><b>Aa</b>Leitura</button>
+ <button id="shareBook"><b>↗</b>Compartilhar</button>
+</nav>
+<div class="toast" id="toast">Link copiado</div>
+
+<script>
+const root=document.documentElement, body=document.body, sidebar=document.getElementById('sidebar'), settings=document.getElementById('settings'), bg=document.getElementById('drawerBg'), toast=document.getElementById('toast');
+const key='pmm-vol2-reader';
+let prefs=JSON.parse(localStorage.getItem(key)||'{}');
+
+function save(){localStorage.setItem(key,JSON.stringify(prefs))}
+function showToast(t){toast.textContent=t;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}
+function openMenu(){sidebar.classList.add('open');bg.classList.add('open')}
+function closeDrawers(){sidebar.classList.remove('open');settings.classList.remove('open');bg.classList.remove('open')}
+function openSettings(){settings.classList.add('open');bg.classList.add('open')}
+document.getElementById('menuBtn').onclick=openMenu;document.getElementById('mobileMenu').onclick=openMenu;
+document.getElementById('settingsBtn').onclick=openSettings;document.getElementById('mobileSettings').onclick=openSettings;
+document.getElementById('closeSettings').onclick=closeDrawers;bg.onclick=closeDrawers;
+document.querySelectorAll('.toc a').forEach(a=>a.onclick=()=>{if(innerWidth<901)closeDrawers()});
+
+function setTheme(t){body.classList.remove('sepia','dark');if(t!=='light')body.classList.add(t);prefs.theme=t;document.querySelectorAll('[data-theme]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.theme===t));save()}
+document.querySelectorAll('[data-theme]').forEach(b=>b.onclick=()=>setTheme(b.dataset.theme));
+const fr=document.getElementById('fontRange'), fo=document.getElementById('fontOut'), lr=document.getElementById('lineRange'), lo=document.getElementById('lineOut'), ct=document.getElementById('contrast');
+function setFont(v){root.style.setProperty('--fs',v+'px');fr.value=v;fo.value=v+' px';prefs.font=v;save()}
+function setLine(v){let n=v/100;root.style.setProperty('--lh',n);lr.value=v;lo.value=n.toFixed(2).replace('.',',');prefs.line=v;save()}
+fr.oninput=e=>setFont(e.target.value);lr.oninput=e=>setLine(e.target.value);ct.onchange=e=>{body.classList.toggle('contrast',e.target.checked);prefs.contrast=e.target.checked;save()};
+document.getElementById('resetBtn').onclick=()=>{prefs={};setTheme('light');setFont(18);setLine(172);ct.checked=false;body.classList.remove('contrast');save()};
+setTheme(prefs.theme||'light');setFont(prefs.font||18);setLine(prefs.line||172);ct.checked=!!prefs.contrast;body.classList.toggle('contrast',!!prefs.contrast);
+
+const chapters=[...document.querySelectorAll('.chapter')], tocLinks=[...document.querySelectorAll('.toc a')];
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){prefs.last=e.target.id;save();tocLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-22% 0px -65% 0px',threshold:0});
+chapters.forEach(c=>observer.observe(c));
+document.getElementById('continueBtn').onclick=()=>{location.hash='#'+(prefs.last||chapters[0].id)};
+
+addEventListener('scroll',()=>{const d=document.documentElement;const p=d.scrollTop/(d.scrollHeight-d.clientHeight)*100;document.getElementById('progress').style.width=Math.max(0,Math.min(100,p))+'%'},{passive:true});
+
+async function share(url, title){try{if(navigator.share)await navigator.share({title,text:title,url});else{await navigator.clipboard.writeText(url);showToast('Link copiado')}}catch(e){}}
+document.getElementById('shareBook').onclick=()=>share(location.href.split('#')[0],document.title);
+document.querySelectorAll('[data-share-section]').forEach(b=>b.onclick=()=>{const id=b.dataset.shareSection;share(location.href.split('#')[0]+'#'+id,document.querySelector('#'+id).dataset.title)});
+
+addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawers()});
+</script>
+</body>
+</html>
