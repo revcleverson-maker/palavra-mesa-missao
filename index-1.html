@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#143d2a">
+<title>Leitor móvel | Palavra, Mesa e Missão</title>
+<style>
+:root{--green:#143d2a;--gold:#b58a2a;--paper:#fffdf8;--line:#d8cfb8;--text:#20251f;--bar-h:68px}
+*{box-sizing:border-box}html,body{height:100%;margin:0;background:var(--paper);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;overflow:hidden}
+#reader{display:block;width:100%;height:calc(100dvh - var(--bar-h) - env(safe-area-inset-bottom));border:0;background:var(--paper)}
+.mobile-bar{position:fixed;z-index:1000;left:0;right:0;bottom:0;min-height:calc(var(--bar-h) + env(safe-area-inset-bottom));padding:7px 6px calc(7px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);gap:4px;background:rgba(255,253,248,.97);border-top:1px solid var(--line);box-shadow:0 -4px 18px #0002;backdrop-filter:blur(12px)}
+.mobile-bar button{min-width:0;border:0;background:transparent;color:var(--green);font:700 11px/1.15 system-ui,sans-serif;padding:4px 2px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.mobile-bar button:active,.mobile-bar button:focus-visible{background:#efe8d7;outline:2px solid var(--gold);outline-offset:-2px}.icon{font-size:21px;line-height:1}
+.panel,.modal{position:fixed;z-index:1100;background:var(--paper);color:var(--text);box-shadow:0 0 30px #0005;transition:.25s}
+.panel{inset:0 auto 0 0;width:min(88vw,380px);padding:18px 14px calc(18px + env(safe-area-inset-bottom));transform:translateX(-105%);overflow:auto}.panel.open{transform:none}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:-18px;background:var(--paper);padding:16px 0 10px;border-bottom:2px solid var(--gold)}
+h1{font-size:1.1rem;margin:0;color:var(--green)}.close{border:1px solid var(--line);background:var(--paper);color:var(--green);border-radius:999px;padding:8px 12px;font-weight:700}
+#toc a{display:block;padding:12px 4px;border-bottom:1px solid var(--line);color:var(--green);text-decoration:none;font-weight:700}#toc a.sub{padding-left:18px;font-weight:600;font-size:.93rem}
+.backdrop{position:fixed;z-index:1050;inset:0;background:#0006;display:none}.backdrop.open{display:block}
+.modal{left:50%;bottom:calc(var(--bar-h) + 16px + env(safe-area-inset-bottom));width:min(92vw,430px);transform:translate(-50%,130%);border-radius:18px;padding:18px;border:1px solid var(--line)}.modal.open{transform:translate(-50%,0)}
+.modal h2{margin:0 0 6px;color:var(--green);font-size:1.15rem}.modal p{margin:0 0 12px;color:#667068;font-size:.92rem}.modal-actions{display:grid;gap:8px}.modal-actions button{padding:12px;border:1px solid var(--line);background:var(--paper);color:var(--green);border-radius:12px;text-align:left;font-weight:700}
+.toast{position:fixed;z-index:1300;left:50%;bottom:calc(var(--bar-h) + 18px + env(safe-area-inset-bottom));transform:translate(-50%,30px);opacity:0;pointer-events:none;background:#143d2a;color:#fff;padding:10px 14px;border-radius:999px;font-weight:700;font-size:.9rem;transition:.2s;white-space:nowrap;max-width:90vw;overflow:hidden;text-overflow:ellipsis}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:900px){:root{--bar-h:64px}.mobile-bar{left:50%;right:auto;width:min(760px,100%);transform:translateX(-50%);border-left:1px solid var(--line);border-right:1px solid var(--line)}}
+@media print{.mobile-bar,.panel,.modal,.backdrop,.toast{display:none!important}#reader{height:auto}}
+</style>
+</head>
+<body>
+<iframe id="reader" title="Caderno Palavra, Mesa e Missão" src="Index%20V4-1.html"></iframe>
+<div id="backdrop" class="backdrop" aria-hidden="true"></div>
+<aside id="summaryPanel" class="panel" aria-label="Sumário" aria-hidden="true">
+  <div class="panel-head"><h1>Sumário</h1><button class="close" type="button" data-close>Fechar</button></div>
+  <nav id="toc"><p>Carregando as seções…</p></nav>
+</aside>
+<section id="exportModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="exportTitle" aria-hidden="true">
+  <h2 id="exportTitle">Exportar conteúdo</h2>
+  <p>Escolha o que deseja imprimir ou salvar como PDF.</p>
+  <div class="modal-actions">
+    <button type="button" data-export="section">Seção atual</button>
+    <button type="button" data-export="selection">Trecho selecionado</button>
+    <button type="button" data-export="full">Conteúdo completo</button>
+    <button type="button" data-close>Cancelar</button>
+  </div>
+</section>
+<nav class="mobile-bar" aria-label="Ferramentas de leitura">
+  <button id="summaryBtn" type="button"><span class="icon">☰</span><span>Sumário</span></button>
+  <button id="homeBtn" type="button"><span class="icon">⌂</span><span>Início</span></button>
+  <button id="continueBtn" type="button"><span class="icon">↪</span><span>Continuar</span></button>
+  <button id="shareBtn" type="button"><span class="icon">⇧</span><span>Compartilhar</span></button>
+  <button id="exportBtn" type="button"><span class="icon">⇩</span><span>Exportar</span></button>
+</nav>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+  'use strict';
+  const STORAGE_KEY = 'pmm-reader-progress-v1';
+  const frame = document.getElementById('reader');
+  const panel = document.getElementById('summaryPanel');
+  const modal = document.getElementById('exportModal');
+  const backdrop = document.getElementById('backdrop');
+  const toc = document.getElementById('toc');
+  const toast = document.getElementById('toast');
+  let doc = null;
+  let win = null;
+  let saveTimer = 0;
+
+  function notify(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(notify.timer);
+    notify.timer = setTimeout(() => toast.classList.remove('show'), 2200);
+  }
+  function openLayer(element) {
+    element.classList.add('open');
+    element.setAttribute('aria-hidden', 'false');
+    backdrop.classList.add('open');
+  }
+  function closeLayers() {
+    [panel, modal].forEach(el => { el.classList.remove('open'); el.setAttribute('aria-hidden', 'true'); });
+    backdrop.classList.remove('open');
+  }
+  function slug(text, index) {
+    return 'sec-' + String(text || 'conteudo').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60) + '-' + index;
+  }
+  function headings() { return doc ? [...doc.querySelectorAll('h1,h2,h3')] : []; }
+  function buildToc() {
+    const items = headings().filter(h => h.textContent.trim());
+    if (!items.length) { toc.innerHTML = '<p>Não foi possível identificar as seções.</p>'; return; }
+    toc.innerHTML = '';
+    items.forEach((h, i) => {
+      if (!h.id) h.id = slug(h.textContent.trim(), i);
+      const a = document.createElement('a');
+      a.href = '#';
+      a.textContent = h.textContent.trim();
+      if (h.tagName === 'H3') a.className = 'sub';
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        h.scrollIntoView({behavior:'smooth', block:'start'});
+        closeLayers();
+        setTimeout(saveProgress, 450);
+      });
+      toc.appendChild(a);
+    });
+  }
+  function currentSection() {
+    const list = headings();
+    if (!list.length || !win) return null;
+    const threshold = 120;
+    let active = list[0];
+    for (const h of list) {
+      if (h.getBoundingClientRect().top <= threshold) active = h; else break;
+    }
+    return active;
+  }
+  function saveProgress() {
+    if (!win || !doc) return;
+    const section = currentSection();
+    const payload = { y: Math.max(0, Math.round(win.scrollY)), sectionId: section?.id || '', title: section?.textContent?.trim() || '', savedAt: Date.now() };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+  }
+  function scheduleSave() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(saveProgress, 250);
+  }
+  function readProgress() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch { return null; }
+  }
+  function continueReading() {
+    const saved = readProgress();
+    if (!saved || !win) { notify('Ainda não há uma leitura salva.'); return; }
+    const target = saved.sectionId && doc.getElementById(saved.sectionId);
+    if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    setTimeout(() => win.scrollTo({top:Number(saved.y)||0, behavior:'smooth'}), target ? 350 : 0);
+    notify(saved.title ? 'Retomando: ' + saved.title : 'Retomando a última leitura.');
+  }
+  async function share() {
+    saveProgress();
+    const saved = readProgress();
+    const data = { title: doc?.title || document.title, text: saved?.title ? 'Continue a leitura em “' + saved.title + '”.' : 'Palavra, Mesa e Missão', url: location.href };
+    try {
+      if (navigator.share) await navigator.share(data);
+      else { await navigator.clipboard.writeText(data.url); notify('Link copiado para compartilhar.'); }
+    } catch (error) {
+      if (error?.name !== 'AbortError') notify('Não foi possível compartilhar agora.');
+    }
+  }
+  function printableHtml(title, content) {
+    const styles = [...doc.querySelectorAll('style,link[rel="stylesheet"]')].map(el => el.outerHTML).join('\n');
+    return '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>' + escapeHtml(title) + '</title>' + styles + '<style>.toolbar,.drawer,.top{display:none!important}body{background:#fff!important}main{max-width:none!important}</style></head><body>' + content + '</body></html>';
+  }
+  function escapeHtml(value) { const d=document.createElement('div'); d.textContent=value; return d.innerHTML; }
+  function printContent(mode) {
+    if (!doc || !win) return;
+    closeLayers();
+    if (mode === 'full') { win.focus(); win.print(); return; }
+    let title = doc.title || 'Conteúdo';
+    let content = '';
+    if (mode === 'selection') {
+      const selection = win.getSelection();
+      if (!selection || selection.isCollapsed || !selection.rangeCount) { notify('Selecione primeiro o trecho desejado.'); return; }
+      const container = doc.createElement('div');
+      container.appendChild(selection.getRangeAt(0).cloneContents());
+      content = '<main>' + container.innerHTML + '</main>';
+      title = 'Trecho selecionado';
+    } else {
+      const section = currentSection();
+      if (!section) { notify('Não foi possível identificar a seção atual.'); return; }
+      title = section.textContent.trim();
+      const wrapper = doc.createElement('main');
+      wrapper.appendChild(section.cloneNode(true));
+      let node = section.nextElementSibling;
+      while (node && !/^H[12]$/.test(node.tagName)) { wrapper.appendChild(node.cloneNode(true)); node = node.nextElementSibling; }
+      content = wrapper.outerHTML;
+    }
+    const popup = window.open('', '_blank', 'noopener,noreferrer');
+    if (!popup) { notify('Autorize janelas para exportar.'); return; }
+    popup.document.open(); popup.document.write(printableHtml(title, content)); popup.document.close();
+    popup.addEventListener('load', () => { popup.focus(); setTimeout(() => popup.print(), 250); }, {once:true});
+  }
+
+  frame.addEventListener('load', () => {
+    try {
+      win = frame.contentWindow; doc = frame.contentDocument;
+      buildToc();
+      win.addEventListener('scroll', scheduleSave, {passive:true});
+      win.addEventListener('beforeunload', saveProgress);
+      document.getElementById('continueBtn').title = readProgress()?.title || 'Continuar de onde parou';
+    } catch { toc.innerHTML = '<p>O conteúdo foi aberto, mas o sumário automático não está disponível.</p>'; }
+  });
+  document.getElementById('summaryBtn').addEventListener('click', () => openLayer(panel));
+  document.getElementById('homeBtn').addEventListener('click', () => { if(win) win.scrollTo({top:0,behavior:'smooth'}); closeLayers(); });
+  document.getElementById('continueBtn').addEventListener('click', continueReading);
+  document.getElementById('shareBtn').addEventListener('click', share);
+  document.getElementById('exportBtn').addEventListener('click', () => openLayer(modal));
+  document.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', closeLayers));
+  document.querySelectorAll('[data-export]').forEach(b => b.addEventListener('click', () => printContent(b.dataset.export)));
+  backdrop.addEventListener('click', closeLayers);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLayers(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) saveProgress(); });
+})();
+</script>
+</body>
+</html>
