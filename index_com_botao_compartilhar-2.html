@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atalho Compartilhar</title>
+<style>
+body{font-family:Arial,sans-serif;padding:30px}
+#shareBtn{position:fixed;right:18px;bottom:18px;padding:14px 18px;border:none;
+border-radius:999px;font-size:16px;cursor:pointer}
+</style>
+</head>
+<body>
+<h2>Exemplo de botão Compartilhar</h2>
+<p>Copie este trecho para o seu projeto ou use este arquivo.</p>
+
+<button id="shareBtn">📤 Compartilhar</button>
+
+<script>
+document.getElementById("shareBtn").addEventListener("click", async () => {
+  const data = {
+    title: document.title,
+    text: "Confira este conteúdo.",
+    url: location.href
+  };
+
+  if (navigator.share) {
+    try {
+      await navigator.share(data);
+    } catch(e){}
+  } else {
+    try{
+      await navigator.clipboard.writeText(location.href);
+      alert("Link copiado para a área de transferência.");
+    } catch(e){
+      prompt("Copie o link:", location.href);
+    }
+  }
+});
+</script>
+</body>
+</html>
