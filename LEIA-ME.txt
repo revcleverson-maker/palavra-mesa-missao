@@ -1,0 +1,1 @@
+Abra index.html. Este arquivo é autônomo: todas as leituras e devocionais estão incorporadas nele. Não é necessário abrir os arquivos individuais nem manter links externos.
