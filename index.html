@@ -1,269 +1,45 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#073b2b"><title>Palavra, Mesa e Missão — Semana Completa</title>
+<meta name="theme-color" content="#073b2b">
+<title>Palavra, Mesa e Missão — Volume 5</title>
 <style>
-:root{--g:#073b2b;--g2:#10523d;--gold:#d59a1a;--cream:#f6efe3;--paper:#fffdf8;--text:#203128;--line:#e4d6bf}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#062f22;font-family:Georgia,serif;color:var(--text)}
-button{font:inherit}.app{max-width:760px;margin:auto;min-height:100vh;background:var(--paper)}
-.header{position:sticky;top:0;z-index:50;background:rgba(7,59,43,.98);color:#fff;border-bottom:2px solid var(--gold);padding:12px 14px}
-.headrow{display:flex;justify-content:space-between;align-items:center;gap:10px}.brand b{display:block;text-transform:uppercase;letter-spacing:.05em}.brand small{color:#efc96d}
-.tools{display:flex;gap:6px}.tool{border:1px solid #ffffff44;background:#ffffff16;color:#fff;border-radius:10px;padding:8px 10px}
-.days{display:flex;overflow:auto;gap:7px;padding:10px 0 2px;scrollbar-width:none}.days::-webkit-scrollbar{display:none}
-.daybtn{white-space:nowrap;border:1px solid #ffffff33;background:#ffffff12;color:#fff;border-radius:999px;padding:8px 12px;font:700 12px Arial}.daybtn.active{background:var(--gold);color:#163126}
-.dev{display:none}.dev.active{display:block}.hero{padding:28px 22px;background:radial-gradient(circle at 75% 12%,#f9ce6a55,transparent 34%),linear-gradient(145deg,#15523d,#062b20);color:#fff;border-radius:0 0 28px 28px}
-.hero .weekday{color:#f0c865;font:700 14px Arial;letter-spacing:.08em}.hero h1{margin:13px 0 4px;font-size:42px;line-height:.95;text-transform:uppercase}.hero h1 em{display:block;color:var(--gold);font-size:48px;text-transform:none;font-weight:normal}.date{font:15px Arial;margin-top:16px}.lit{display:inline-block;margin-top:8px;border:1px solid var(--gold);color:#f4d48e;border-radius:999px;padding:6px 10px;font:12px Arial}
-.carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:16px 0 92px}.carousel::-webkit-scrollbar{display:none}.slide{min-width:100%;scroll-snap-align:start;padding:3px 20px}
-.quote{font-size:20px;line-height:1.55;font-style:italic;border-left:4px solid var(--gold);padding-left:16px}.ref{color:#98690d;font:700 13px Arial;letter-spacing:.05em}
-h2{color:var(--g);font:700 20px Arial;text-transform:uppercase;border-bottom:2px solid var(--gold);padding-bottom:8px}
-.reading,.box{background:linear-gradient(180deg,#fff,#faf3e7);border:1px solid var(--line);border-radius:16px;padding:16px;margin:11px 0}.reading small{color:#a16f0d;font:700 12px Arial}.reading h3{margin:5px 0}.reading p,.box p{margin:0}
-p,li{font-size:17px;line-height:1.58}.final{font-weight:bold}.box h3{margin:0 0 8px;color:var(--g);font:700 17px Arial;text-transform:uppercase}
-.actions{display:flex;flex-wrap:wrap;gap:8px}.action{background:var(--g);color:#fff;border:0;border-radius:10px;padding:10px 12px}
-.footer{background:var(--g);color:#fff;display:grid;grid-template-columns:repeat(3,1fr);text-align:center;padding:14px 8px;font:11px Arial}.footer b{display:block;color:var(--gold)}
-.nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(760px,100%);z-index:60;background:linear-gradient(0deg,#073b2b 72%,transparent);padding:24px 14px 12px;display:flex;justify-content:center;align-items:center;gap:12px}
-.nav button{width:44px;height:44px;border-radius:50%;border:1px solid #ffffff55;background:#0d4b38;color:#fff;font-size:22px}.dots{display:flex;gap:7px}.dot{width:8px;height:8px;border:0;border-radius:10px;background:#ffffff55;padding:0}.dot.on{width:24px;background:var(--gold)}
-.dark body,.dark .app{background:#111;color:#eee}.dark .reading,.dark .box{background:#1c221f;color:#eee;border-color:#39443e}.dark h2,.dark .box h3{color:#e5be68}
-.large p,.large li{font-size:20px}.large .quote{font-size:23px}
-@media(min-width:820px){.app{box-shadow:0 0 45px #0007}}
-</style></head><body><main class="app">
-<header class="header"><div class="headrow"><div class="brand"><b>Palavra, Mesa e Missão</b><small>Palavra proclamada • Fé fortalecida • Igreja enviada</small></div>
-<div class="tools"><button class="tool" id="font">A+</button><button class="tool" id="theme">◐</button></div></div>
-<nav class="days"><button class='daybtn active' data-day='0'>DOMINGO</button><button class='daybtn ' data-day='1'>SEGUNDA</button><button class='daybtn ' data-day='2'>TERÇA</button><button class='daybtn ' data-day='3'>QUARTA</button><button class='daybtn ' data-day='4'>QUINTA</button><button class='daybtn ' data-day='5'>SEXTA</button><button class='daybtn ' data-day='6'>SÁBADO</button></nav></header>
-<section class="dev active" data-day="0">
-  <div class="hero">
-    <div class="weekday">DOMINGO</div>
-    <h1>A Palavra <em>Entre Nós</em></h1>
-    <div class="date">02 DE AGOSTO DE 2026</div>
-    <div class="lit">18º DOMINGO DO TEMPO COMUM</div>
-  </div>
-  <div class="carousel">
-    <article class="slide">
-      <p class="quote">“Então Jesus tomou os pães, deu graças e os repartiu entre os que estavam sentados; o mesmo fez com os peixes, dando-lhes tanto quanto queriam.”</p>
-      <div class="ref">MATEUS 14.19–20</div>
-      <div class="box"><h3>O PÃO QUE DEUS OFERECE</h3><p>Jesus vê a multidão cansada e com fome, e se compadece dela. Ele não envia as pessoas embora, mas toma o pouco que há, dá graças e o reparte. O que parecia insuficiente se torna abundante nas mãos de Cristo.</p></div>
-    </article>
-    <article class="slide"><h2>Leituras de hoje</h2><div class='reading'><small>ANTIGO TESTAMENTO</small><h3>Isaías 55.1–5</h3><p>O convite de Deus para saciar gratuitamente a sede e a fome de todos.</p></div><div class='reading'><small>SALMO</small><h3>Salmo 145.8–9,14–21</h3><p>O Senhor é bom para todos e cuida de sua criação.</p></div><div class='reading'><small>EPÍSTOLA</small><h3>Romanos 9.1–5</h3><p>O profundo amor de Paulo por Israel e o plano soberano de Deus.</p></div><div class='reading'><small>EVANGELHO</small><h3>Mateus 14.13–21</h3><p>Jesus tem compaixão e multiplica o pouco para alimentar a multidão.</p></div></article>
-    <article class="slide"><h2>Reflexão</h2><p>Jesus vê a multidão cansada e com fome, e se compadece dela. Ele não envia as pessoas embora, mas toma o pouco que há, dá graças e o reparte. O que parecia insuficiente se torna abundante nas mãos de Cristo.</p><p>Deus convida todos a virem a Ele e receberem o que realmente satisfaz. E em Jesus, esse convite se torna pão repartido, graça abundante e vida plena.</p><p>Neste domingo, somos lembrados de que o Senhor cuida de nossas necessidades e nos ensina a confiar, a compartilhar e a reconhecer que tudo vem dEle.</p><p class="final">Onde há obediência e gratidão, Deus faz multiplicar o que temos para o bem de muitos.</p></article>
-    <article class="slide"><h2>Aplicação</h2><div class="box"><p>Entregue a Deus o que você tem — tempo, talentos, recursos — e peça que Ele use isso para abençoar outras pessoas. Faça algo concreto de generosidade hoje.</p></div><h2>Oração</h2><div class="box"><p>Senhor, Tu és o Deus que convida, que provê e que se compadece. Ensina-me a confiar em Teu cuidado e a partilhar o que tenho com alegria. Usa minha vida para que outros sejam alimentados pelo Teu amor. Em nome de Jesus. Amém.</p></div></article>
-    <article class="slide"><h2>Para guardar no coração</h2><div class="box"><p>“E todos comeram e ficaram satisfeitos.” Mateus 14.20</p></div><h2>Compromisso da semana</h2><div class="box"><p>Viver cada dia lembrando que Deus supre nossas necessidades e nos chama a ser instrumentos da Sua provisão.</p></div></article>
-    <article class="slide"><h2>Intercessão</h2><div class="box"><ul><li>Pela nossa igreja e por nossas famílias.</li><li>Pelos que passam necessidade de alimento e cuidado.</li><li>Por discernimento para usarmos com sabedoria o que Deus nos confia.</li><li>Para que sejamos um povo generoso e missionário.</li></ul></div><h2>Amanhã</h2><div class="box"><p>A fome que só Deus satisfaz. Vamos refletir sobre como a Palavra nos conduz à mesa daquele que alimenta a vida por inteiro.</p></div>
-      <div class="box actions">
-        <button class="action speak">🔊 Ouvir</button>
-        <button class="action share">↗ Compartilhar</button>
-        <button class="action read">Marcar como lido</button>
-      </div>
-    </article>
-  </div>
-  <footer class="footer"><div><b>A Palavra</b>nos reúne</div><div><b>A Mesa</b>nos fortalece</div><div><b>A Missão</b>nos envia</div></footer>
-</section>
-<section class="dev " data-day="1">
-  <div class="hero">
-    <div class="weekday">SEGUNDA-FEIRA</div>
-    <h1>A Palavra <em>Entre Nós</em></h1>
-    <div class="date">03 DE AGOSTO DE 2026</div>
-    <div class="lit">LECIONÁRIO DIÁRIO</div>
-  </div>
-  <div class="carousel">
-    <article class="slide">
-      <p class="quote">“Não somente de pão viverá o homem, mas de tudo o que procede da boca do Senhor.”</p>
-      <div class="ref">DEUTERONÔMIO 8.3</div>
-      <div class="box"><h3>DEUS PROVÊ PARA FORMAR UM POVO QUE CONFIA</h3><p>As leituras de hoje mostram um Deus que cuida, disciplina e ensina seu povo através da provisão. No salmo, Asafe relembra com gratidão as maravilhas do Senhor: Ele abriu o mar, guiou no deserto e deu pão do céu.</p></div>
-    </article>
-    <article class="slide"><h2>Leituras de hoje</h2><div class='reading'><small>SALMO</small><h3>Salmo 78.1–8,17–29</h3><p>Lembra e anuncia as grandes obras do Senhor, que deu pão do céu ao seu povo.</p></div><div class='reading'><small>ANTIGO TESTAMENTO</small><h3>Deuteronômio 8.1–10</h3><p>O Senhor humilhou e provou o seu povo, mas também o alimentou no deserto, para que aprendesse a depender dEle.</p></div><div class='reading'><small>EPÍSTOLA</small><h3>Romanos 1.8–15</h3><p>Paulo deseja levar o evangelho a todos, pois não se envergonha do evangelho: é poder de Deus para salvação.</p></div></article>
-    <article class="slide"><h2>Reflexão</h2><p>As leituras de hoje mostram um Deus que cuida, disciplina e ensina seu povo através da provisão. No salmo, Asafe relembra com gratidão as maravilhas do Senhor: Ele abriu o mar, guiou no deserto e deu pão do céu.</p><p>Deuteronômio ensina que Deus não apenas provê, mas também permite a necessidade para que Seu povo aprenda que “não só de pão viverá o homem”. O objetivo não é nos acostumarmos com o conforto, mas com a dependência e a confiança nEle.</p><p>Paulo, em Romanos, revela que a boa notícia dessa provisão se destina a todos os povos. O evangelho é o poder de Deus para salvar, transformar e enviar.</p><p>Assim como Deus alimentou Israel e multiplicou o pão com Jesus, Ele nos sustenta diariamente e nos envia para compartilhar essa graça.</p><p class="final">Deus não só supre nossas necessidades: Ele nos forma como povo grato, dependente e missionário.</p></article>
-    <article class="slide"><h2>Aplicação</h2><div class="box"><p>Hoje, reconheça que suas necessidades estão nas mãos de Deus. Confie em Sua provisão e procure ser um canal de bênção para alguém que esteja passando necessidade.</p></div><h2>Oração</h2><div class="box"><p>Senhor Deus, obrigado por cuidar de mim todos os dias. Ensina-me a confiar na Tua provisão e a ser generoso com o que tens colocado em minhas mãos. Que eu viva para a Tua glória e para abençoar outras pessoas. Em nome de Jesus. Amém.</p></div></article>
-    <article class="slide"><h2>Para guardar no coração</h2><div class="box"><p>“Não somente de pão viverá o homem, mas de tudo o que procede da boca do Senhor.” Deuteronômio 8.3</p></div><h2>Compromisso da semana</h2><div class="box"><p>Viver cada dia lembrando que Deus supre nossas necessidades e nos chama a ser instrumentos da Sua provisão.</p></div></article>
-    <article class="slide"><h2>Intercessão</h2><div class="box"><ul><li>Pela nossa igreja e por nossas famílias.</li><li>Pelos que passam necessidade de alimento e cuidado.</li><li>Por discernimento para usarmos com sabedoria o que Deus nos confia.</li><li>Para que sejamos um povo generoso e missionário.</li></ul></div><h2>Amanhã</h2><div class="box"><p>Continuaremos refletindo sobre como Deus alimenta Seu povo e nos ensina a repartir e servir.</p></div>
-      <div class="box actions">
-        <button class="action speak">🔊 Ouvir</button>
-        <button class="action share">↗ Compartilhar</button>
-        <button class="action read">Marcar como lido</button>
-      </div>
-    </article>
-  </div>
-  <footer class="footer"><div><b>A Palavra</b>nos reúne</div><div><b>A Mesa</b>nos fortalece</div><div><b>A Missão</b>nos envia</div></footer>
-</section>
-<section class="dev " data-day="2">
-  <div class="hero">
-    <div class="weekday">TERÇA-FEIRA</div>
-    <h1>A Palavra <em>Entre Nós</em></h1>
-    <div class="date">04 DE AGOSTO DE 2026</div>
-    <div class="lit">LECIONÁRIO DIÁRIO</div>
-  </div>
-  <div class="carousel">
-    <article class="slide">
-      <p class="quote">“Lembrem-se do Senhor, do seu Deus, porque é ele quem lhes dá o poder de produzir riquezas.”</p>
-      <div class="ref">DEUTERONÔMIO 8.18</div>
-      <div class="box"><h3>GRATIDÃO QUE GERA PARTILHA</h3><p>Deus não apenas supre as nossas necessidades — Ele nos convida a lembrar, agradecer e partilhar.</p></div>
-    </article>
-    <article class="slide"><h2>Leituras de hoje</h2><div class='reading'><small>SALMO</small><h3>Salmo 78.1–8,17–29</h3><p>De geração em geração, Deus conta as Suas obras e guia o Seu povo com bondade e fidelidade.</p></div><div class='reading'><small>ANTIGO TESTAMENTO</small><h3>Deuteronômio 26.1–15</h3><p>O povo apresenta as primícias ao Senhor em gratidão por tudo o que Ele fez. A generosidade nasce da memória das bênçãos recebidas.</p></div><div class='reading'><small>EPÍSTOLA</small><h3>Atos 2.37–47</h3><p>A comunidade nasce do evangelho, é batizada, persevera no ensino, na comunhão, no partir do pão e nas orações.</p></div></article>
-    <article class="slide"><h2>Reflexão</h2><p>Deus não apenas supre as nossas necessidades — Ele nos convida a lembrar, agradecer e partilhar.</p><p>Em Deuteronômio, o povo apresenta as primícias como gesto de reconhecimento: tudo vem do Senhor. Não se trata de mérito, mas de memória agradecida das Suas obras.</p><p>Em Atos, vemos o reflexo dessa gratidão: a comunidade cristã reparte o pão e os bens, vive em comunhão e tem o coração transformado pelo evangelho.</p><p>Jesus multiplicou os pães para saciar uma multidão. O mesmo Senhor hoje multiplica o que temos quando colocamos nas Suas mãos e oferecemos com generosidade.</p><p class="final">Quem se lembra das bênçãos de Deus não guarda para si: reparte, serve e faz a graça de Deus circular.</p></article>
-    <article class="slide"><h2>Aplicação</h2><div class="box"><p>Reflita hoje: o que Deus colocou em suas mãos para abençoar outros? Pode ser tempo, talentos, recursos ou uma palavra amiga. Dê um passo concreto de generosidade nesta semana.</p></div><h2>Oração</h2><div class="box"><p>Senhor Deus, obrigado pela Tua fidelidade e por cada bênção que recebi. Ensina-me a ter um coração grato e generoso. Que eu não apenas receba, mas também reparta o que o Senhor me dá, para que outros sejam abençoados. Em nome de Jesus. Amém.</p></div></article>
-    <article class="slide"><h2>Para guardar no coração</h2><div class="box"><p>“Lembrem-se do Senhor, do seu Deus, porque é ele quem lhes dá o poder de produzir riquezas.” Deuteronômio 8.18</p></div><h2>Compromisso da semana</h2><div class="box"><p>Viver cada dia lembrando que Deus supre nossas necessidades e nos chama a ser instrumentos da Sua provisão.</p></div></article>
-    <article class="slide"><h2>Intercessão</h2><div class="box"><ul><li>Pela nossa igreja e por nossas famílias.</li><li>Pelos que passam necessidade de alimento e cuidado.</li><li>Por discernimento para usarmos com sabedoria o que Deus nos confia.</li><li>Para que sejamos um povo generoso e missionário.</li></ul></div><h2>Amanhã</h2><div class="box"><p>Continuaremos refletindo sobre como Deus alimenta Seu povo e nos ensina a repartir e servir.</p></div>
-      <div class="box actions">
-        <button class="action speak">🔊 Ouvir</button>
-        <button class="action share">↗ Compartilhar</button>
-        <button class="action read">Marcar como lido</button>
-      </div>
-    </article>
-  </div>
-  <footer class="footer"><div><b>A Palavra</b>nos reúne</div><div><b>A Mesa</b>nos fortalece</div><div><b>A Missão</b>nos envia</div></footer>
-</section>
-<section class="dev " data-day="3">
-  <div class="hero">
-    <div class="weekday">QUARTA-FEIRA</div>
-    <h1>A Palavra <em>Entre Nós</em></h1>
-    <div class="date">05 DE AGOSTO DE 2026</div>
-    <div class="lit">LECIONÁRIO DIÁRIO</div>
-  </div>
-  <div class="carousel">
-    <article class="slide">
-      <p class="quote">“No sexto dia, vocês colherão o dobro, e cada um ficará com o que colher; mas no sétimo dia descansarão.”</p>
-      <div class="ref">ÊXODO 16.5,23</div>
-      <div class="box"><h3>DEUS SUPRE, ENSINA E CONVIDA AO DESCANSO</h3><p>No deserto, Israel reclamou contra Deus, mas Ele foi fiel e lhes deu o maná, o pão do céu. Deus não apenas sustenta, mas também ensina: “No sexto dia, vocês colherão o dobro... no sétimo dia, descansarão”.</p></div>
-    </article>
-    <article class="slide"><h2>Leituras de hoje</h2><div class='reading'><small>SALMO</small><h3>Salmo 78.1–8,17–29</h3><p>Reclamações no deserto e fidelidade de Deus que alimenta com o pão do céu.</p></div><div class='reading'><small>ANTIGO TESTAMENTO</small><h3>Êxodo 16.2–15,31–35</h3><p>Deus dá o maná para alimentar seu povo e estabelece o sábado como sinal da sua provisão e descanso.</p></div><div class='reading'><small>EVANGELHO</small><h3>Mateus 15.32–39</h3><p>Jesus alimenta quatro mil pessoas com sete pães e alguns peixinhos.</p></div></article>
-    <article class="slide"><h2>Reflexão</h2><p>No deserto, Israel reclamou contra Deus, mas Ele foi fiel e lhes deu o maná, o pão do céu. Deus não apenas sustenta, mas também ensina: “No sexto dia, vocês colherão o dobro... no sétimo dia, descansarão”.</p><p>A provisão de Deus não é só para a barriga; é também um convite ao descanso e à confiança. Ele sabe quando e como suprir cada necessidade do Seu povo.</p><p>No evangelho, vemos que Jesus tem compaixão das multidões e multiplica o pouco que havia. Deus continua fazendo isso hoje: supre, ainda que nossos recursos sejam pequenos, e ensina a descansar nEle.</p><p class="final">Quando confiam, descansam e obedecem, o povo de Deus experimenta a plenitude da provisão do Senhor. Descanse na fidelidade de Deus e confie que Ele cuida de cada detalhe da sua vida.</p></article>
-    <article class="slide"><h2>Aplicação</h2><div class="box"><p>Hoje, observe: você tem reclamado ou confiado? Está tentando resolver tudo com as próprias forças? Entregue suas preocupações a Deus e aprenda a descansar. Confie que Ele sabe o que você precisa antes mesmo de pedir.</p></div><h2>Oração</h2><div class="box"><p>Senhor, obrigado porque o Senhor supre todas as minhas necessidades. Ensina-me a confiar em Ti e a descansar no Teu tempo. Ajuda-me a reconhecer Tua provisão cada dia e a viver em obediência. Em nome de Jesus. Amém.</p></div></article>
-    <article class="slide"><h2>Para guardar no coração</h2><div class="box"><p>“No sexto dia, vocês colherão o dobro, e cada um ficará com o que colher; mas no sétimo dia descansarão.” Êxodo 16.5</p></div><h2>Compromisso da semana</h2><div class="box"><p>Viver cada dia lembrando que Deus supre nossas necessidades e nos chama a ser instrumentos da Sua provisão.</p></div></article>
-    <article class="slide"><h2>Intercessão</h2><div class="box"><ul><li>Pela nossa igreja e por nossas famílias.</li><li>Pelos que passam necessidade de alimento e cuidado.</li><li>Por discernimento para usarmos com sabedoria o que Deus nos confia.</li><li>Para que sejamos um povo generoso e missionário.</li></ul></div><h2>Amanhã</h2><div class="box"><p>Veremos como Deus transforma nosso coração e nos torna uma comunidade generosa que compartilha o que recebe.</p></div>
-      <div class="box actions">
-        <button class="action speak">🔊 Ouvir</button>
-        <button class="action share">↗ Compartilhar</button>
-        <button class="action read">Marcar como lido</button>
-      </div>
-    </article>
-  </div>
-  <footer class="footer"><div><b>A Palavra</b>nos reúne</div><div><b>A Mesa</b>nos fortalece</div><div><b>A Missão</b>nos envia</div></footer>
-</section>
-<section class="dev " data-day="4">
-  <div class="hero">
-    <div class="weekday">QUINTA-FEIRA</div>
-    <h1>A Palavra <em>Entre Nós</em></h1>
-    <div class="date">06 DE AGOSTO DE 2026</div>
-    <div class="lit">LECIONÁRIO DIÁRIO</div>
-  </div>
-  <div class="carousel">
-    <article class="slide">
-      <p class="quote">“Eu sou o pão da vida. Quem vem a mim nunca terá fome; e quem crê em mim nunca terá sede.”</p>
-      <div class="ref">JOÃO 6.35</div>
-      <div class="box"><h3>DEUS É A RESPOSTA PARA NOSSAS NECESSIDADES REAIS</h3><p>O povo de Israel reclamou no deserto, desejando carne e esquecendo das inúmeras provisões que Deus já havia feito. Deus não ignorou o clamor, mas respondeu de forma sobrenatural.</p></div>
-    </article>
-    <article class="slide"><h2>Leituras de hoje</h2><div class='reading'><small>SALMO</small><h3>Salmo 78.1–8,17–29</h3><p>Israel é chamado a lembrar as obras do Senhor e a contar às gerações futuras o que Ele fez.</p></div><div class='reading'><small>ANTIGO TESTAMENTO</small><h3>Números 11.4–15</h3><p>O povo deseja carne, mas o Senhor provê codornizes e ensina que toda provisão vem dEle.</p></div><div class='reading'><small>EPÍSTOLA</small><h3>1 Coríntios 10.1–13</h3><p>As experiências do povo no deserto são advertências para que vivamos com fé e não com murmuração.</p></div><div class='reading'><small>EVANGELHO</small><h3>João 6.1–15</h3><p>Jesus alimenta cinco mil homens com cinco pães e dois peixes e mostra que Ele é o pão da vida.</p></div></article>
-    <article class="slide"><h2>Reflexão</h2><p>O povo de Israel reclamou no deserto, desejando carne e esquecendo das inúmeras provisões que Deus já havia feito. Deus não ignorou o clamor, mas respondeu de forma sobrenatural.</p><p>Paulo nos lembra que essas coisas aconteceram como exemplo para nós: para que não cobicemos o mal e para que confiemos na provisão do Senhor.</p><p>No evangelho, Jesus alimenta uma multidão com muito pouco. Ele não apenas dá pão para o corpo, mas revela quem Ele é: o pão da vida que sacia para sempre.</p><p>Deus conhece nossas necessidades antes mesmo de pedirmos e tem mais do que o suficiente para suprir cada situação. Ele é fiel, poderoso e generoso.</p><p class="final">Confie nEle. Ele é o provedor de tudo o que você precisa.</p></article>
-    <article class="slide"><h2>Aplicação</h2><div class="box"><p>Hoje, entregue ao Senhor suas preocupações financeiras, emocionais ou familiares. Ele sabe do que você precisa. Não murmure, não duvide: peça, confie e agradeça pela provisão que Ele já está preparando.</p></div><h2>Oração</h2><div class="box"><p>Senhor, Tu és o Deus que provê! Obrigado porque conheces cada uma das minhas necessidades e cuidas de mim com amor. Ensina-me a confiar mais em Ti e a nunca murmurar, mas sempre reconhecer que tudo o que tenho vem das Tuas mãos. Em nome de Jesus. Amém.</p></div></article>
-    <article class="slide"><h2>Para guardar no coração</h2><div class="box"><p>“Eu sou o pão da vida. Quem vem a mim nunca terá fome; e quem crê em mim nunca terá sede.” João 6.35</p></div><h2>Compromisso da semana</h2><div class="box"><p>Viver cada dia lembrando que Deus supre nossas necessidades e nos chama a ser instrumentos da Sua provisão para outros.</p></div></article>
-    <article class="slide"><h2>Intercessão</h2><div class="box"><ul><li>Pela nossa igreja e por nossas famílias.</li><li>Pelos que passam necessidade de alimento e cuidado.</li><li>Por discernimento para usarmos com sabedoria o que Deus nos confia.</li><li>Para que sejamos um povo generoso e missionário.</li></ul></div><h2>Amanhã</h2><div class="box"><p>O que aprendemos hoje sobre a provisão de Deus nos ensinará sobre a importância de testemunhar Suas obras. Prepare-se para refletir e compartilhar.</p></div>
-      <div class="box actions">
-        <button class="action speak">🔊 Ouvir</button>
-        <button class="action share">↗ Compartilhar</button>
-        <button class="action read">Marcar como lido</button>
-      </div>
-    </article>
-  </div>
-  <footer class="footer"><div><b>A Palavra</b>nos reúne</div><div><b>A Mesa</b>nos fortalece</div><div><b>A Missão</b>nos envia</div></footer>
-</section>
-<section class="dev " data-day="5">
-  <div class="hero">
-    <div class="weekday">SEXTA-FEIRA</div>
-    <h1>A Palavra <em>Entre Nós</em></h1>
-    <div class="date">07 DE AGOSTO DE 2026</div>
-    <div class="lit">LECIONÁRIO DIÁRIO</div>
-  </div>
-  <div class="carousel">
-    <article class="slide">
-      <p class="quote">“O meu Deus suprirá todas as necessidades de vocês, de acordo com as suas gloriosas riquezas em Cristo Jesus.”</p>
-      <div class="ref">FILIPENSES 4.19</div>
-      <div class="box"><h3>DEUS SUPRE EM TODAS AS ESTAÇÕES</h3><p>A festa dos Tabernáculos lembrava o povo de Israel de como Deus os sustentou no deserto com provisão diária. Era um tempo de alegria e gratidão por Sua fidelidade. O salmista celebra esse Deus que alimenta, guarda e é bom para todos.</p></div>
-    </article>
-    <article class="slide"><h2>Leituras de hoje</h2><div class='reading'><small>SALMO</small><h3>Salmo 145</h3><p>Louvor ao Deus que cuida de toda a sua criação com fidelidade e compaixão.</p></div><div class='reading'><small>ANTIGO TESTAMENTO</small><h3>Levítico 23.33–44</h3><p>Deus dá instruções sobre a festa dos Tabernáculos, lembrando Seu cuidado e provisão no caminho.</p></div><div class='reading'><small>EPÍSTOLA</small><h3>Filipenses 4.10–20</h3><p>Paulo aprendeu a viver em todas as situações, porque Cristo supre todas as necessidades.</p></div><div class='reading'><small>EVANGELHO</small><h3>Marcos 8.1–10</h3><p>Jesus se compadece da multidão e multiplica os pães, mostrando Seu poder e Seu cuidado.</p></div></article>
-    <article class="slide"><h2>Reflexão</h2><p>A festa dos Tabernáculos lembrava o povo de Israel de como Deus os sustentou no deserto com provisão diária. Era um tempo de alegria e gratidão por Sua fidelidade. O salmista celebra esse Deus que alimenta, guarda e é bom para todos.</p><p>Paulo testemunha que aprendeu a viver contente tanto na abundância quanto na escassez, porque o segredo não está nas circunstâncias, mas em Cristo, que supre tudo o que precisamos. Ele não dependeu de si mesmo, mas daquele que o fortalece.</p><p>No evangelho, Jesus vê uma multidão com fome e se compadece. Ele pode ter enviado todos embora, mas decide agir. Com o pouco que havia — cinco pães e dois peixes — realiza algo que parecia impossível.</p><p>Deus não muda. Ontem, hoje e sempre, Ele é o provedor fiel. Ele vê nossas necessidades, se compadece e age, muitas vezes através do que colocamos à disposição.</p><p class="final">Confie nEle. Entregue a Ele o que você tem e veja Sua provisão alcançar você e muitos outros.</p></article>
-    <article class="slide"><h2>Aplicação</h2><div class="box"><p>Hoje, entregue a Deus suas necessidades e os “poucos recursos” que você tem. Confie que Ele pode multiplicar e suprir, não apenas o suficiente, mas em abundância para você e para outros.</p></div><h2>Oração</h2><div class="box"><p>Senhor Deus, Tu és o Deus que supre todas as nossas necessidades. Ensina-me a confiar em Tua provisão e a ser generoso com o que tenho. Que eu nunca me esqueça de Te agradecer por cada cuidado e provisão. Multiplica, Senhor, o que tenho para o Teu Reino e para o bem de muitos. Em nome de Jesus. Amém.</p></div></article>
-    <article class="slide"><h2>Para guardar no coração</h2><div class="box"><p>“O meu Deus suprirá todas as necessidades de vocês, de acordo com as suas gloriosas riquezas em Cristo Jesus.” Filipenses 4.19</p></div><h2>Compromisso da semana</h2><div class="box"><p>Viver cada dia lembrando que Deus supre nossas necessidades e nos chama a ser instrumentos da Sua provisão para outros.</p></div></article>
-    <article class="slide"><h2>Intercessão</h2><div class="box"><ul><li>Pela nossa igreja e por nossas famílias.</li><li>Pelos que passam necessidade de alimento e cuidado.</li><li>Por discernimento para usarmos com sabedoria o que Deus nos confia.</li><li>Para que sejamos um povo generoso e missionário.</li></ul></div><h2>Amanhã</h2><div class="box"><p>Refletiremos sobre como Deus nos chama para compartilhar o que Ele nos dá.</p></div>
-      <div class="box actions">
-        <button class="action speak">🔊 Ouvir</button>
-        <button class="action share">↗ Compartilhar</button>
-        <button class="action read">Marcar como lido</button>
-      </div>
-    </article>
-  </div>
-  <footer class="footer"><div><b>A Palavra</b>nos reúne</div><div><b>A Mesa</b>nos fortalece</div><div><b>A Missão</b>nos envia</div></footer>
-</section>
-<section class="dev " data-day="6">
-  <div class="hero">
-    <div class="weekday">SÁBADO</div>
-    <h1>A Palavra <em>Entre Nós</em></h1>
-    <div class="date">08 DE AGOSTO DE 2026</div>
-    <div class="lit">LECIONÁRIO DIÁRIO</div>
-  </div>
-  <div class="carousel">
-    <article class="slide">
-      <p class="quote">“Vejam! Hoje ponho diante de vocês a vida e a prosperidade, a morte e a destruição.”</p>
-      <div class="ref">DEUTERONÔMIO 30.15</div>
-      <div class="box"><h3>ESCOLHER A VIDA E EDIFICAR SOBRE A ROCHA</h3><p>Moisés coloca Israel diante de uma escolha decisiva: vida ou morte. Deus não impõe, Ele convida. A vida está ligada ao amor e à obediência ao Senhor.</p></div>
-    </article>
-    <article class="slide"><h2>Leituras de hoje</h2><div class='reading'><small>SALMO</small><h3>Salmo 145</h3><p>Louvemos ao Senhor por Sua bondade, misericórdia e fidelidade que se renovam cada dia.</p></div><div class='reading'><small>ANTIGO TESTAMENTO</small><h3>Deuteronômio 30.15–20</h3><p>Deus coloca diante do povo a escolha entre a vida e a morte. Ele convida Israel a escolher a vida, amando e obedecendo ao Senhor.</p></div><div class='reading'><small>EPÍSTOLA</small><h3>Colossenses 3.1–11</h3><p>Somos chamados a buscar as coisas do alto, onde Cristo está, e a revestir-nos do novo modo de vida que agrada a Deus.</p></div><div class='reading'><small>EVANGELHO</small><h3>Mateus 7.24–29</h3><p>Aquele que ouve e pratica as palavras de Jesus é como o homem prudente que edificou sua casa sobre a rocha.</p></div></article>
-    <article class="slide"><h2>Reflexão</h2><p>Moisés coloca Israel diante de uma escolha decisiva: vida ou morte. Deus não impõe, Ele convida. A vida está ligada ao amor e à obediência ao Senhor.</p><p>No evangelho, Jesus ensina que ouvir Suas palavras não basta; é preciso colocá-las em prática. A casa edificada sobre a rocha resiste às tempestades porque tem fundamento seguro.</p><p>Paulo nos lembra que nossa verdadeira vida está escondida com Cristo em Deus. Não somos mais definidos pelo velho modo de viver, mas pelo novo, que se expressa em compaixão, bondade e perdão.</p><p>O Salmo 145 nos leva a louvar ao Senhor por Sua fidelidade constante: Ele sustenta, cuida e renova a cada manhã.</p><p class="final">Escolher a vida é edificar sobre a rocha e viver cada dia confiando na provisão e na palavra do Senhor. Confie nEle. Obedeça às Suas palavras e permaneça firme em Seu amor.</p></article>
-    <article class="slide"><h2>Aplicação</h2><div class="box"><p>Quais escolhas você tem feito? Elas conduzem à vida que Deus oferece? Suas decisões diárias refletem obediência e confiança nas promessas do Senhor? Fortaleça hoje seu compromisso de praticar a Palavra, mesmo quando for difícil. Edifique sua vida sobre Cristo.</p></div><h2>Oração</h2><div class="box"><p>Senhor Deus, obrigado porque Tu me convidas a escolher a vida e me mostras o caminho seguro em Teu Filho Jesus. Ajuda-me a obedecer à Tua Palavra e a edificar minha vida sobre a rocha que é Cristo. Renova em mim um coração fiel, que busca as coisas do alto e reflete Teu amor em cada atitude. Em nome de Jesus. Amém.</p></div></article>
-    <article class="slide"><h2>Para guardar no coração</h2><div class="box"><p>“Vejam! Hoje ponho diante de vocês a vida e a prosperidade, a morte e a destruição. Pois hoje lhe ordeno que ame o Senhor, o seu Deus, que ande nos seus caminhos e que obedeça aos seus mandamentos, decretos e leis; então você viverá e se multiplicará.” Deuteronômio 30.15–16</p></div><h2>Compromisso da semana</h2><div class="box"><p>Viver cada dia lembrando que Deus supre nossas necessidades e nos chama a ser instrumentos da Sua provisão para outros.</p></div></article>
-    <article class="slide"><h2>Intercessão</h2><div class="box"><ul><li>Pela nossa igreja e por nossas famílias.</li><li>Pelos que passam necessidade de alimento e cuidado.</li><li>Por discernimento para usarmos com sabedoria o que Deus nos confia.</li><li>Para que sejamos um povo generoso e missionário.</li></ul></div><h2>Amanhã</h2><div class="box"><p>No domingo, voltaremos a meditar sobre a Palavra que nos reúne para a adoração. Descanse em Deus e prepare seu coração para o culto.</p></div>
-      <div class="box actions">
-        <button class="action speak">🔊 Ouvir</button>
-        <button class="action share">↗ Compartilhar</button>
-        <button class="action read">Marcar como lido</button>
-      </div>
-    </article>
-  </div>
-  <footer class="footer"><div><b>A Palavra</b>nos reúne</div><div><b>A Mesa</b>nos fortalece</div><div><b>A Missão</b>nos envia</div></footer>
-</section></main>
-<nav class="nav"><button id="prev">‹</button><div class="dots"></div><button id="next">›</button></nav>
-<script>
-const devs=[...document.querySelectorAll('.dev')],dayBtns=[...document.querySelectorAll('.daybtn')],dots=document.querySelector('.dots');
-let day=0,slide=0,car=devs[0].querySelector('.carousel');
-
-function buildDots(){
-  dots.innerHTML='';
-  [...devs[day].querySelectorAll('.slide')].forEach((_,i)=>{
-    const b=document.createElement('button'); b.className='dot'+(i===slide?' on':'');
-    b.onclick=()=>goSlide(i); dots.appendChild(b);
-  });
-}
-function setDay(i){
-  day=i; slide=0;
-  devs.forEach((d,n)=>d.classList.toggle('active',n===i));
-  dayBtns.forEach((b,n)=>b.classList.toggle('active',n===i));
-  car=devs[i].querySelector('.carousel'); car.scrollLeft=0;
-  bindCar(); buildDots(); window.scrollTo({top:0,behavior:'smooth'});
-  const key='lido-dia-'+day;
-  const read=devs[day].querySelector('.read'); read.textContent=localStorage.getItem(key)?'✓ Lido':'Marcar como lido';
-}
-function goSlide(i){
-  const slides=[...devs[day].querySelectorAll('.slide')];
-  slide=Math.max(0,Math.min(slides.length-1,i));
-  slides[slide].scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'}); buildDots();
-}
-function bindCar(){
-  car.onscroll=()=>{const n=Math.round(car.scrollLeft/car.clientWidth);if(n!==slide){slide=n;buildDots()}};
-}
-dayBtns.forEach((b,i)=>b.onclick=()=>setDay(i));
-document.querySelector('#prev').onclick=()=>goSlide(slide-1);
-document.querySelector('#next').onclick=()=>goSlide(slide+1);
-document.querySelector('#font').onclick=()=>document.documentElement.classList.toggle('large');
-document.querySelector('#theme').onclick=()=>document.documentElement.classList.toggle('dark');
-
-document.addEventListener('click',async e=>{
-  const active=devs[day];
-  if(e.target.classList.contains('speak')){
-    speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(active.innerText);u.lang='pt-BR';speechSynthesis.speak(u);
-  }
-  if(e.target.classList.contains('share')){
-    const data={title:'A Palavra Entre Nós',text:active.querySelector('.hero').innerText,url:location.href};
-    if(navigator.share) await navigator.share(data); else {await navigator.clipboard.writeText(location.href);alert('Link copiado.');}
-  }
-  if(e.target.classList.contains('read')){
-    const key='lido-dia-'+day;localStorage.setItem(key,'1');e.target.textContent='✓ Lido';
-  }
-});
-bindCar();buildDots();setDay(0);
-</script></body></html>
+:root{--g:#073b2b;--g2:#10523d;--gold:#c9932d;--cream:#f7f1e5;--paper:#fffdf8;--ink:#24322d}
+*{box-sizing:border-box} body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,serif}
+main{max-width:760px;margin:auto;min-height:100vh;background:var(--paper);padding:28px 20px 48px}
+.badge{display:inline-block;background:var(--g);color:#fff;border:1px solid var(--gold);border-radius:999px;padding:7px 12px;font:700 12px Arial}
+h1{color:var(--g);font-size:clamp(34px,8vw,58px);line-height:.98;margin:24px 0 10px}
+h1 em{color:var(--gold);font-weight:normal}
+.subtitle{font-size:20px;line-height:1.5}
+.card{background:#fff;border:1px solid #e4d6bf;border-radius:16px;padding:18px;margin:18px 0}
+a.button{display:block;text-decoration:none;text-align:center;background:var(--g);color:#fff;border-radius:12px;padding:15px;margin:12px 0;font:700 16px Arial}
+a.secondary{background:#fff;color:var(--g);border:2px solid var(--g)}
+small{color:#65746e}.footer{margin-top:34px;border-top:2px solid var(--gold);padding-top:18px;text-align:center;color:var(--g)}
+</style>
+</head>
+<body>
+<main>
+<span class="badge">COLEÇÃO PALAVRA, MESA E MISSÃO · VOLUME 5</span>
+<h1>Quando a fé <em>vence o medo</em></h1>
+<p class="subtitle">Cristo vem ao encontro de sua Igreja nos ventos contrários.</p>
+<div class="card">
+<strong>09 de agosto de 2026 · 19º Domingo do Tempo Comum · Ano A</strong>
+<p>1 Reis 19.9–18 · Salmo 85.8–13 · Romanos 10.5–15 · Mateus 14.22–33</p>
+</div>
+<a class="button" href="Caderno_Mestre_Volume_5_Quando_a_Fe_Vence_o_Medo_CELULAR.html">📱 Ler o Caderno Mestre no celular</a>
+<a class="button secondary" href="Caderno_Mestre_Volume_5_Edicao_Integral_CORRIGIDO.pdf">📖 Abrir edição integral em PDF</a>
+<a class="button secondary" href="Caderno_Mestre_Volume_5_Edicao_Integral_FINAL.docx">📝 Abrir edição editável em Word</a>
+<div class="card">
+<strong>Publicação independente do Volume 4</strong>
+<p>Esta página foi construída para ficar dentro da pasta <code>volume-5/</code>. Não substitua o arquivo <code>index.html</code> que já está na raiz do repositório.</p>
+<small>Se algum botão der erro 404, confira se os três arquivos foram enviados para a mesma pasta e se os nomes permaneceram exatamente iguais.</small>
+</div>
+<div class="footer">
+<strong>Palavra proclamada · Fé fortalecida · Igreja enviada</strong><br>
+Soli Deo Gloria
+</div>
+</main>
+</body>
+</html>

@@ -1,0 +1,17 @@
+PACOTE DE PUBLICAÇÃO — VOLUME 5
+
+IMPORTANTE:
+Este ZIP contém os arquivos estruturais preparados por ChatGPT:
+- index.html
+- README.md
+- INSTRUCOES.txt
+
+Os três arquivos editoriais definitivos devem ser colocados na mesma pasta
+volume-5/ antes do upload:
+
+Caderno_Mestre_Volume_5_Quando_a_Fe_Vence_o_Medo_CELULAR.html
+Caderno_Mestre_Volume_5_Edicao_Integral_CORRIGIDO.pdf
+Caderno_Mestre_Volume_5_Edicao_Integral_FINAL.docx
+
+NÃO substitua o index.html existente na raiz do repositório.
+NÃO remova os arquivos do Volume 4.
