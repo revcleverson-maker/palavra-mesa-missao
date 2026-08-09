@@ -4,42 +4,67 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#073b2b">
-<title>Palavra, Mesa e Missão — Volume 5</title>
+<title>Palavra, Mesa e Missão — Coleção de Volumes</title>
 <style>
 :root{--g:#073b2b;--g2:#10523d;--gold:#c9932d;--cream:#f7f1e5;--paper:#fffdf8;--ink:#24322d}
 *{box-sizing:border-box} body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,serif}
 main{max-width:760px;margin:auto;min-height:100vh;background:var(--paper);padding:28px 20px 48px}
 .badge{display:inline-block;background:var(--g);color:#fff;border:1px solid var(--gold);border-radius:999px;padding:7px 12px;font:700 12px Arial}
-h1{color:var(--g);font-size:clamp(34px,8vw,58px);line-height:.98;margin:24px 0 10px}
-h1 em{color:var(--gold);font-weight:normal}
-.subtitle{font-size:20px;line-height:1.5}
-.card{background:#fff;border:1px solid #e4d6bf;border-radius:16px;padding:18px;margin:18px 0}
-a.button{display:block;text-decoration:none;text-align:center;background:var(--g);color:#fff;border-radius:12px;padding:15px;margin:12px 0;font:700 16px Arial}
-a.secondary{background:#fff;color:var(--g);border:2px solid var(--g)}
-small{color:#65746e}.footer{margin-top:34px;border-top:2px solid var(--gold);padding-top:18px;text-align:center;color:var(--g)}
+h1{color:var(--g);font-size:clamp(28px,6vw,42px);line-height:.98;margin:20px 0 6px}
+.subtitle{font-size:18px;line-height:1.4;margin-bottom:6px}
+.card{background:#fff;border:1px solid #e4d6bf;border-radius:12px;padding:14px;margin:14px 0}
+.vol-list{list-style:none;padding:0;margin:12px 0}
+.vol-list li{background:#fff;border:1px solid #e9e0cf;border-radius:10px;padding:12px;margin:8px 0}
+.vol-list a{color:var(--g);text-decoration:none;font-weight:700}
+.note{font-size:13px;color:#65746e}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.small{font-size:13px;color:#65746e}
+.footer{margin-top:24px;border-top:2px solid var(--gold);padding-top:18px;text-align:center;color:var(--g)}
 </style>
 </head>
 <body>
 <main>
-<span class="badge">COLEÇÃO PALAVRA, MESA E MISSÃO · VOLUME 5</span>
-<h1>Quando a fé <em>vence o medo</em></h1>
-<p class="subtitle">Cristo vem ao encontro de sua Igreja nos ventos contrários.</p>
+<span class="badge">COLEÇÃO PALAVRA, MESA E MISSÃO</span>
+<h1>Volumes da coleção</h1>
+<p class="subtitle">Lista dos volumes em ordem crescente. Esta página organiza os volumes e está preparada para adicionar novos lançamentos semanais.</p>
 <div class="card">
-<strong>09 de agosto de 2026 · 19º Domingo do Tempo Comum · Ano A</strong>
-<p>1 Reis 19.9–18 · Salmo 85.8–13 · Romanos 10.5–15 · Mateus 14.22–33</p>
+<strong>Como funciona</strong>
+<p class="note">Cada volume fica dentro da sua própria pasta (ex.: <code>volume-5/</code>) com um arquivo <code>index.html</code>. Esta página principal apenas aponta para essas pastas — nenhum conteúdo de volumes foi removido.</p>
 </div>
-<a class="button" href="Caderno_Mestre_Volume_5_Quando_a_Fe_Vence_o_Medo_CELULAR.html">📱 Ler o Caderno Mestre no celular</a>
-<a class="button secondary" href="Caderno_Mestre_Volume_5_Edicao_Integral_CORRIGIDO.pdf">📖 Abrir edição integral em PDF</a>
-<a class="button secondary" href="Caderno_Mestre_Volume_5_Edicao_Integral_FINAL.docx">📝 Abrir edição editável em Word</a>
+<ul id="volumes" class="vol-list">
+  <li data-volume="4"><a href="volume-4/">Volume 4 — (abrir)</a></li>
+  <li data-volume="5"><a href="volume-5/">Volume 5 — (abrir)</a></li>
+  <li data-volume="6"><a href="volume-6/">Volume 6 — (abrir)</a></li>
+  <li data-volume="7"><a href="volume-7/">Volume 7 — (abrir)</a></li>
+</ul>
 <div class="card">
-<strong>Publicação independente do Volume 4</strong>
-<p>Esta página foi construída para ficar dentro da pasta <code>volume-5/</code>. Não substitua o arquivo <code>index.html</code> que já está na raiz do repositório.</p>
-<small>Se algum botão der erro 404, confira se os três arquivos foram enviados para a mesma pasta e se os nomes permaneceram exatamente iguais.</small>
+<strong>Adicionar o próximo volume</strong>
+<p class="note">Para lançar o próximo volume semanalmente, crie uma nova pasta chamada <code>volume-N/</code> (substitua N pelo número) e coloque nela o <code>index.html</code> e os arquivos do caderno. Depois, adicione esta linha ao bloco acima (ou deixe que outro colaborador a adicione):</p>
+<pre class="note">&lt;li data-volume="8"&gt;&lt;a href="volume-8/"&gt;Volume 8 — (abrir)&lt;/a&gt;&lt;/li&gt;</pre>
+<p class="note">A página já possui um script que ordena automaticamente os volumes pelo número (atributo <code>data-volume</code>), então não é preciso se preocupar com a posição — apenas mantenha o atributo <code>data-volume</code> correto.</p>
+</div>
+<div class="card">
+<strong>Sobre cópias e versões</strong>
+<p class="note">Observação: havia um arquivo <code>index.html</code> na raiz que mostrava o conteúdo do Volume 5. Esse conteúdo permanece dentro de <code>volume-5/index.html</code> — eu atualizei a raiz para ser a página de coleção sem apagar outros arquivos.</p>
 </div>
 <div class="footer">
 <strong>Palavra proclamada · Fé fortalecida · Igreja enviada</strong><br>
 Soli Deo Gloria
 </div>
 </main>
+<script>
+// Ordena automaticamente a lista de volumes pelo atributo data-volume (número)
+document.addEventListener('DOMContentLoaded', function() {
+  const ul = document.getElementById('volumes');
+  if (!ul) return;
+  const items = Array.from(ul.querySelectorAll('li'));
+  items.sort((a,b) => {
+    const na = parseInt(a.getAttribute('data-volume')||0,10);
+    const nb = parseInt(b.getAttribute('data-volume')||0,10);
+    return na - nb;
+  });
+  items.forEach(i => ul.appendChild(i)); // re-append in order
+});
+</script>
 </body>
 </html>
