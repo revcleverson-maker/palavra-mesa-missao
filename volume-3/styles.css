@@ -1,0 +1,12 @@
+/* Estilos básicos para Volume 3 */
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin: 0;
+  padding: 1rem;
+  color: #111;
+  background: #fff;
+}
+
+header h1 { font-size: 1.5rem; margin: 0 0 1rem 0 }
+main p { margin: 0.5rem 0 }
