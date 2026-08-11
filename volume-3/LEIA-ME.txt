@@ -1,0 +1,34 @@
+CADERNO MESTRE - VOLUME 3 | VERSAO RESPONSIVA/PWA
+
+Conteudo: Uma comunidade que cresce em harmonia
+Data: 26 de julho de 2026 - 9o Domingo apos Pentecostes
+
+ARQUIVOS PRINCIPAIS
+- index.html: abre a versao responsiva.
+- manifest.webmanifest e sw.js: permitem instalacao e leitura offline.
+- Caderno_Mestre_Volume_3_Leitura_Celular.html: versao unica, para abrir diretamente.
+
+COMO TESTAR NO COMPUTADOR
+1. Extraia o arquivo ZIP.
+2. Na pasta extraida, execute um servidor local. Exemplo, com Python:
+   python -m http.server 8000
+3. Acesse no navegador: http://localhost:8000
+
+COMO PUBLICAR
+Envie todos os arquivos e pastas, mantendo a mesma estrutura, para um site com HTTPS.
+Pode ser GitHub Pages, Netlify, Vercel, SharePoint com hospedagem apropriada ou o site do Instituto.
+A instalacao como aplicativo e o funcionamento offline completo exigem HTTPS (ou localhost para testes).
+
+COMO USAR NO CELULAR SEM PUBLICAR
+Abra o arquivo unico Caderno_Mestre_Volume_3_Leitura_Celular.html em um navegador compatível.
+Essa versao ajusta texto, temas e sumario, mas a instalacao PWA depende de hospedagem HTTPS.
+
+RECURSOS
+- tela adaptavel a celular, tablet e computador;
+- fonte e espacamento ajustaveis;
+- temas claro, sepia e escuro;
+- alto contraste;
+- sumario navegavel e pesquisa;
+- memoria do ponto de leitura;
+- compartilhamento de capitulos;
+- instalacao na tela inicial e leitura offline quando publicada em HTTPS.
