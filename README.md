@@ -1,37 +1,29 @@
-# Volume 5 — Palavra, Mesa e Missão
+# Coleção Palavra, Mesa e Missão
 
-## Quando a Fé Vence o Medo
-**09 de agosto de 2026 — 19º Domingo do Tempo Comum — Ano A**
+**Cadernos de Formação Cristã Reformada**
 
-Esta pasta foi preparada para publicar o Volume 5 **sem substituir o Volume 4 e sem alterar o `index.html` da raiz do repositório**.
+> Palavra proclamada • Fé fortalecida • Igreja enviada
 
-### Arquivos que devem ficar juntos nesta pasta
+Este repositório reúne os volumes digitais da coleção **Palavra, Mesa e Missão**, com edições em PDF, Word e formatos para leitura no celular quando disponíveis.
 
-1. `index.html` — página de entrada do Volume 5.
-2. `Caderno_Mestre_Volume_5_Quando_a_Fe_Vence_o_Medo_CELULAR.html` — edição integral responsiva, 22 capítulos.
-3. `Caderno_Mestre_Volume_5_Edicao_Integral_CORRIGIDO.pdf` — edição integral em PDF.
-4. `Caderno_Mestre_Volume_5_Edicao_Integral_FINAL.docx` — edição editável em Word (opcional para publicação pública).
+## Volumes
 
-### Estrutura correta
+| Volume | Tema | Situação |
+|---|---|---|
+| [Volume 1](volume-1/) | A Palavra que não volta vazia | Edição integral disponível |
+| Volume 2 | A Palavra entre nós | Conteúdo existente em revisão de organização |
+| [Volume 3](volume-3/) | Caderno mestre | Publicado |
+| [Volume 4](volume-4/) | Vinde às águas | Publicado |
+| [Volume 5](volume-5/) | Quando a fé vence o medo | Publicado |
+| [Volume 6](volume-6/) | Deixaram viver | Edição integrada para conferência |
 
-```text
-palavra-mesa-missao/
-├── index.html                 ← NÃO ALTERAR
-├── ...arquivos do Volume 4   ← NÃO ALTERAR
-└── volume-5/
-    ├── index.html
-    ├── Caderno_Mestre_Volume_5_Quando_a_Fe_Vence_o_Medo_CELULAR.html
-    ├── Caderno_Mestre_Volume_5_Edicao_Integral_CORRIGIDO.pdf
-    └── Caderno_Mestre_Volume_5_Edicao_Integral_FINAL.docx
-```
+## Identidade editorial
 
-### Como enviar no GitHub
+- Teologia reformada e linguagem pastoral.
+- Publicação digital de uso universal.
+- Lema: **Palavra proclamada • Fé fortalecida • Igreja enviada**.
+- Selo editorial: **Soli Deo Gloria**.
 
-No repositório `revcleverson-maker/palavra-mesa-missao`, crie a pasta `volume-5` e envie **somente** os arquivos acima para ela.  
-Não substitua arquivos da raiz.
+## Observação
 
-Depois da publicação via GitHub Pages, a entrada do Volume 5 ficará em:
-
-`https://revcleverson-maker.github.io/palavra-mesa-missao/volume-5/`
-
-O Volume 4 continuará no endereço atual.
+Os arquivos históricos que permanecem na raiz serão reorganizados gradualmente, sem perda de conteúdo ou substituição indevida das edições já publicadas.
