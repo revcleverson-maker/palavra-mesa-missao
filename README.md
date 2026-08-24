@@ -11,7 +11,7 @@ Este repositório reúne os volumes digitais da coleção **Palavra, Mesa e Miss
 | Volume | Tema | Situação |
 |---|---|---|
 | [Volume 1](volume-1/) | A Palavra que não volta vazia | Edição integral disponível |
-| Volume 2 | A Palavra entre nós | Conteúdo existente em revisão de organização |
+| [Volume 2](volume-2/) | A Palavra entre nós | Edição final e fontes organizadas |
 | [Volume 3](volume-3/) | Caderno mestre | Publicado |
 | [Volume 4](volume-4/) | Vinde às águas | Publicado |
 | [Volume 5](volume-5/) | Quando a fé vence o medo | Publicado |
@@ -26,4 +26,4 @@ Este repositório reúne os volumes digitais da coleção **Palavra, Mesa e Miss
 
 ## Observação
 
-Os arquivos históricos que permanecem na raiz serão reorganizados gradualmente, sem perda de conteúdo ou substituição indevida das edições já publicadas.
+Os arquivos históricos que permanecem na raiz foram preservados. A organização em pastas evita perda de conteúdo e mantém compatibilidade com os endereços já publicados.
