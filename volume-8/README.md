@@ -14,11 +14,22 @@ Edição final de 48 páginas. Capa e contracapa aprovadas fazem parte integrant
 [Leitura do Caderno 1](caderno-1/)
 
 ### Caderno 2 — Formação Cristã e Discipulado — Vivendo a Palavra em Comunidade
-Edição consolidada com capa e contracapa. A leitura integral está publicada em quatro partes para facilitar o acesso pelo celular: adultos e Escola Dominical; formação catequética de adolescentes e crianças; pequenos grupos, oração e família; leitura bíblica, revisão, recursos e apêndice pastoral.
+Edição consolidada com capa e contracapa. A leitura integral está organizada para acesso pelo celular e contempla adultos e Escola Dominical, formação catequética de adolescentes e crianças, pequenos grupos, oração, família, visitação pastoral e leituras da semana.
 
 [Leitura integral do Caderno 2](caderno-2/)
 
+### Caderno 3 — A Palavra Entre Nós — Devocionais para a Semana
+Devocionais de domingo a sábado, de **6 a 12 de setembro de 2026**, com duas edições por dia: **devocional da manhã** e **edição noturna “Ampliando a reflexão”**. A versão web permite escolher o dia e o período e gerar um link direto para compartilhar cada devocional separadamente.
+
+[Leitura do Caderno 3](caderno-3/)
+
 ---
+
+## Estrutura editorial do Volume 8
+
+1. **Pregação e Liturgia** — preparando o Domingo a partir da Palavra.
+2. **Formação Cristã e Discipulado** — vivendo a Palavra em comunidade.
+3. **A Palavra Entre Nós** — levando a Palavra para a oração e a vida ao longo da semana.
 
 **Palavra proclamada • Fé fortalecida • Igreja enviada**
 
