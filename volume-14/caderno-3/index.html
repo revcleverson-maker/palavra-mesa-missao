@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Volume 14 · Caderno 3 — A Palavra Entre Nós</title>
+<style>
+body{margin:0;background:#f8f2e6;color:#133a2c;font-family:Georgia,serif}
+main{max-width:660px;margin:13vh auto;padding:36px 24px;text-align:center}
+h1{font-size:clamp(24px,5vw,38px)}.rule{width:90px;height:3px;background:#b99446;margin:20px auto}p{line-height:1.6}
+small{color:#6e786e}a{color:#135439}
+</style></head><body><main>
+<p><small>PALAVRA, MESA E MISSÃO · VOLUME 14 · CADERNO 3</small></p>
+<h1>A Palavra Entre Nós</h1><div class="rule"></div>
+<p id="loading" role="status">Carregando a edição integral e suas imagens…</p>
+<noscript>Esta versão necessita de JavaScript para reunir as partes do caderno. Ative-o no navegador.</noscript>
+<p><a href="../">Voltar ao Volume 14</a></p>
+</main>
+<script>
+(async () => {
+ try {
+   const partes=["partes/01.txt","partes/02.txt","partes/03.txt","partes/04.txt","partes/05.txt","partes/06.txt","partes/07.txt","partes/08.txt","partes/09.txt","partes/10.txt","partes/11.txt"];
+   const resp=await Promise.all(partes.map(p=>fetch(p,{cache:'default'})));
+   for(const r of resp)if(!r.ok)throw new Error('Falha ao carregar '+r.url+' (HTTP '+r.status+')');
+   const conteudo=(await Promise.all(resp.map(r=>r.text()))).join('');
+   if (!conteudo.startsWith('<!DOCTYPE html>') || !conteudo.includes('</html>')) throw new Error('Arquivo incompleto');
+   document.open();document.write(conteudo);document.close();
+ } catch(e) {
+   document.getElementById('loading').textContent='Não foi possível abrir o caderno. Recarregue a página ou tente novamente em instantes.';
+   console.error('Volume 14, Caderno 3:',e);
+ }
+})();
+</script></body></html>
