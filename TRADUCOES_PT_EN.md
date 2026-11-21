@@ -1,6 +1,6 @@
 # Plano de internacionalização (pt-BR / en)
 
-## Escopo e estado real em 21/11/2026
+> **Situação atual em 21/11/2026 — após integração do PR #5:** este documento conserva o histórico da primeira proposta (PR #4). A nova versão foi integrada ao `main`; as **67 páginas HTML completas** receberam `assets/tradutor.js` e o único HTML não alterado (`volume-4/Index V4 duplicate.html`) é um fragmento sem cabeçalho válido. As apresentações em inglês agora incluem os Volumes **1, 8, 17, 18 e 19**, além da página principal. A tradução automática do texto integral é externa e não substitui revisão editorial. O GitHub Pages confirmou a implantação, mas a sincronização do domínio `palavramesaemissao.com.br` não foi comprovada.\n\n## Escopo e estado real em 21/11/2026
 
 O repositório `revcleverson-maker/palavra-mesa-missao` mantém parte do acervo editorial, mas **não deve ser tomado como inventário completo do que está publicado no domínio oficial**. Pastas com documentos históricos, páginas provisórias e arquivos de leitura integral convivem neste repositório.
 
