@@ -1,0 +1,32 @@
+name: Integrar tradutor aos HTML completos
+on:
+  push:
+    branches:
+      - feature/traducao-site-integrada-2026-11-21
+      - main
+    paths:
+      - "**/*.html"
+      - "assets/tradutor.js"
+      - "scripts/injetar-tradutor.py"
+      - ".github/workflows/injetar-tradutor.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  incluir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Inserir botão nos arquivos HTML extensos e recentes
+        run: python3 scripts/injetar-tradutor.py
+      - name: Registrar arquivos HTML corrigidos
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -u
+            git commit -m "Incluir tradução automática em todos os HTML completos"
+            git push
+          fi
