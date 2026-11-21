@@ -20,10 +20,14 @@ h1{color:var(--g);font-size:clamp(28px,6vw,42px);line-height:.98;margin:20px 0 6
 .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .small{font-size:13px;color:#65746e}
 .footer{margin-top:24px;border-top:2px solid var(--gold);padding-top:18px;text-align:center;color:var(--g)}
+.lang-switch{display:flex;gap:8px;justify-content:flex-end;margin-bottom:16px;font:700 14px Arial,sans-serif}.lang-switch a{color:var(--g);text-decoration:none;padding:8px 12px;border:1px solid var(--gold);border-radius:7px}.lang-switch a[aria-current="page"]{background:var(--g);color:white}
 </style>
+<link rel="alternate" hreflang="pt-BR" href="./"><link rel="alternate" hreflang="en" href="en/">
+<script src="assets/tradutor.js" defer></script>
 </head>
 <body>
 <main>
+<nav class="lang-switch" aria-label="Idioma / Language"><a href="./" lang="pt-BR" aria-current="page">Português</a><a href="en/" lang="en">English</a></nav>
 <span class="badge">COLEÇÃO PALAVRA, MESA E MISSÃO</span>
 <h1>Volumes da coleção</h1>
 <p class="subtitle">Lista dos volumes em ordem crescente. Esta página organiza os volumes e está preparada para adicionar novos lançamentos semanais.</p>
