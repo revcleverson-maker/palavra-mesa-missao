@@ -7,7 +7,8 @@ body{margin:0;background:#f8f2e6;color:#133a2c;font-family:Georgia,serif}
 main{max-width:660px;margin:13vh auto;padding:36px 24px;text-align:center}
 h1{font-size:clamp(24px,5vw,38px)}.rule{width:90px;height:3px;background:#b99446;margin:20px auto}p{line-height:1.6}
 small{color:#6e786e}a{color:#135439}
-</style></head><body><main>
+</style><script src="../../assets/tradutor.js" defer></script>
+</head><body><main>
 <p><small>PALAVRA, MESA E MISSÃO · VOLUME 14 · CADERNO 3</small></p>
 <h1>A Palavra Entre Nós</h1><div class="rule"></div>
 <p id="loading" role="status">Carregando a edição integral e suas imagens…</p>
@@ -22,7 +23,7 @@ small{color:#6e786e}a{color:#135439}
    for(const r of resp)if(!r.ok)throw new Error('Falha ao carregar '+r.url+' (HTTP '+r.status+')');
    const conteudo=(await Promise.all(resp.map(r=>r.text()))).join('');
    if (!conteudo.startsWith('<!DOCTYPE html>') || !conteudo.includes('</html>')) throw new Error('Arquivo incompleto');
-   document.open();document.write(conteudo);document.close();
+   const jsTradutor = '<scr' + 'ipt defer src="../../assets/tradutor.js"><' + '/script>'; const conteudoComTradutor = conteudo.replace(/<\/head>/i, jsTradutor + '</head>'); document.open();document.write(conteudoComTradutor);document.close();
  } catch(e) {
    document.getElementById('loading').textContent='Não foi possível abrir o caderno. Recarregue a página ou tente novamente em instantes.';
    console.error('Volume 14, Caderno 3:',e);
