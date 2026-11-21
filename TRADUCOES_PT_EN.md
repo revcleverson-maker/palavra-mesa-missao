@@ -35,3 +35,36 @@ Esta mudança introduz a navegação entre português e inglês e traduz **integ
 - Priorizar os volumes atuais para ter os três cadernos em inglês antes de ampliar o acervo histórico.
 - Traduzir e revisar o conteúdo textual por unidade e publicar cada URL inglesa ao concluir a validação.
 - Fazer revisão geral de navegação, acessibilidade, SEO e atribuição antes de liberar para o público.
+
+## Tradutor de páginas — primeira versão (21/11/2026)
+
+Foi criado `assets/tradutor.js`, com um botão flutuante **🌐 Traduzir / Translate** de boa legibilidade no celular, compatível com teclado e com opção para português, inglês, espanhol, francês, alemão, italiano, árabe e japonês.
+
+- Uma página que tenha correspondente editorial em inglês (`link[rel=alternate][hreflang=en]`) abre **a versão publicada/revisada do próprio acervo**. O português original é sempre preservado.
+- Na ausência da versão editorial, o botão encaminha a página atual ao recurso de **tradução de sites do Google Tradutor**. A página pode ser aberta em um domínio administrado por terceiro; a navegação, o layout e a disponibilidade dependem do serviço externo e **não foram validados no domínio oficial**.
+- A escolha fica armazenada no navegador para aparecer selecionada quando a ferramenta for aberta novamente, sem obrigar um redirecionamento automático ao acessar páginas.
+- O componente apresenta aviso de limites teológicos e indicação da tradução integrada do Chrome/Android.
+- Não se utiliza o antigo script `translate_a/element.js`, que não é solução mantida/confiável para novas integrações em 2026.
+- Tradução automática **não** significa que imagens com texto, PDFs ou citações bíblicas protegidas possam ser republicados em inglês sem revisão.
+
+### Cobertura no repositório
+
+- **38 páginas HTML** têm a inclusão do componente, incluindo as três páginas inglesas novas, sumários e páginas de sermões/devocionais, leitura por capítulos e a página de carregamento do Caderno 3 do Volume 14.
+- A página `volume-14/caderno-3/index.html` recebe uma injeção adicional do carregador do tradutor, pois o seu HTML final é montado a partir de arquivos `partes/*.txt` e substitui o documento original no navegador.
+- **6 páginas HTML de grande porte** não foram atualizadas porque o conector do GitHub não retorna seu conteúdo textual completo para uma edição segura:
+  - `Index V4.html`
+  - `volume2.html`
+  - `volume-2/index.html`
+  - `volume-12/caderno-3/index.html`
+  - `volume-14/caderno-1/index.html`
+  - `volume-14/caderno-2/index.html`
+- `volume-4/Index V4 duplicate.html` não tem uma estrutura HTML completa com `</head>`, portanto não recebeu injeção. Requer inspeção ou substituição por arquivo de leitura definitivo.
+
+### Validação necessária antes de publicar
+
+1. Confirmar qual projeto e qual ramo realmente abastecem `palavramesaemissao.com.br`.
+2. Testar clique do tradutor nos navegadores Chrome/Android e Safari/iPhone com link real publicado — **o link externo pode apresentar limitações regionais ou quebrar páginas com scripts dinâmicos**.
+3. Confirmar se o Google Tradutor preserva navegação, fragmentos (`#`), imagens e botões de compartilhamento dos cadernos.
+4. Integrar as páginas grandes com uma solução no processo de build/deploy (injeção central no HTML ou middleware) ou editar seus arquivos completos por um ambiente Git local.
+5. Revisar a solução de tradução embutida ou API profissional caso se exija alternância dentro do próprio domínio, sem abrir o serviço externo.
+6. Não considerar esta fase pronta para publicação integral antes de localizar no projeto ativo os volumes recentes.
