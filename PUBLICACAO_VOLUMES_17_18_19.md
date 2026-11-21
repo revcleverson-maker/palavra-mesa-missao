@@ -32,7 +32,7 @@ Foram incluídos os índices de navegação dos três volumes, atualização do 
 2. **A publicação no GitHub não comprova a atualização do domínio `palavramesaemissao.com.br`.** É necessário confirmar a fonte de hospedagem e o processo de implantação antes de anunciar sincronização.
 3. **Revisão editorial**: os inventários dos Volumes 17 e 18 indicavam conferência teológica integral pendente em 10/11. A revisão final deve verificar a versão mais recente de cada conteúdo, especialmente o Caderno 3 e os cards do Volume 18.
 4. **Teste móvel**: validar leitura, sumários, aumento de fonte, compartilhamento e downloads de imagens no Android/iOS. A inspeção no repositório verificou presença dos arquivos, mas não substitui um teste de navegador real.
-5. **Tradução automática**: a proposta PT/EN e o componente de tradução em rascunho no PR #4 não foram incorporados a esses cadernos publicados na ramificação principal.
+5. **Tradução automática (atualizado em 21/11/2026)**: o PR #5 foi integrado ao ramo principal e incluiu o tradutor nas páginas HTML completas dos Volumes 17, 18 e 19. As apresentações desses volumes têm versões editoriais em inglês, mas o texto integral dos cadernos permanece em português; o botão fornece tradução automática externa. A implantação do GitHub Pages teve sucesso, mas o domínio oficial continua sem verificação de origem de hospedagem.
 
 ## Critério de preservação
 
