@@ -27,3 +27,13 @@ Este repositório reúne os volumes digitais da coleção **Palavra, Mesa e Miss
 ## Observação
 
 Os arquivos históricos que permanecem na raiz foram preservados. A organização em pastas evita perda de conteúdo e mantém compatibilidade com os endereços já publicados.
+
+## Edições recentes recuperadas — novembro de 2026
+
+| Volume | Tema | Leitura no GitHub |
+|---|---|---|
+| [Volume 17](volume-17/) | A esperança que atravessa a noite · 8–14/11 | [Caderno 1](volume-17/caderno-1/) · [Caderno 2](volume-17/caderno-2/) · [Caderno 3](volume-17/caderno-3/) |
+| [Volume 18](volume-18/) | A alegria do Senhor · 15–21/11 | [Caderno 1](volume-18/caderno-1/) · [Caderno 2](volume-18/caderno-2/) · [Caderno 3](volume-18/caderno-3/) |
+| [Volume 19](volume-19/) | O Rei que reúne o rebanho e nos chama a cuidar · 22–28/11 | [Caderno 1](volume-19/caderno-1/) · [Caderno 2](volume-19/caderno-2/) · [Caderno 3](volume-19/caderno-3/) · [Stories](volume-19/devocionais-breves/) |
+
+As nove leituras integrais foram recuperadas em HTML do acervo editorial e publicadas em `main` em 21/11/2026. O Volume 19 foi dividido em cadernos e sete páginas de cards para proporcionar navegação por seção, preservando o texto e as imagens incorporadas. O Word e o PDF permanecem arquivados na biblioteca de origem, aguardando transferência para o repositório; a presença das leituras não equivale a conferência teológica integral final. Consulte [a conferência desta recuperação](PUBLICACAO_VOLUMES_17_18_19.md).
