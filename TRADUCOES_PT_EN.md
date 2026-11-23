@@ -68,3 +68,14 @@ Foi criado `assets/tradutor.js`, com um botão flutuante **🌐 Traduzir / Trans
 4. Integrar as páginas grandes com uma solução no processo de build/deploy (injeção central no HTML ou middleware) ou editar seus arquivos completos por um ambiente Git local.
 5. Revisar a solução de tradução embutida ou API profissional caso se exija alternância dentro do próprio domínio, sem abrir o serviço externo.
 6. Não considerar esta fase pronta para publicação integral antes de localizar no projeto ativo os volumes recentes.
+
+
+## English Volume 17: publication of preliminary translation (23 November 2026)
+
+The author authorized the publication of the English translations prepared so far. The public preview is available under `en/volume-17/` with separate, reciprocal links to the unchanged Portuguese originals:
+
+- `en/volume-17/caderno-1/`: **Chapters 1–5** translated (including Chapter 5 on Psalm 78); Chapters 6–17 pending.
+- `en/volume-17/caderno-2/`: **Chapters 1–6** translated (including Sunday School); Chapters 7–19 and the pastoral appendix pending.
+- `en/volume-17/caderno-3/`: **14 morning/evening devotionals** translated, pending final linguistic and theological review and English Story/Status art.
+
+**Editorial condition:** Each reading is identified as a public working translation under review, not as a completed or fully reviewed English edition. Biblical renderings are pastoral study texts, not licensed quotations from a published English Bible. The complete Portuguese texts remain authoritative. The preceding sections of this document describe the initial November 21 status and should be read as historical until consolidated.
